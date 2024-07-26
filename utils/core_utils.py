@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 from utils.utils import *
+#from utils import *
 import os
 from dataset_modules.dataset_generic import save_splits
 from models.model_mil import MIL_fc, MIL_fc_mc
@@ -109,7 +110,7 @@ def train(datasets, cur, args):
 
     print('\nInit train/val/test splits...', end=' ')
     train_split, val_split, test_split = datasets
-    save_splits(datasets, ['train', 'val', 'test'], os.path.join(args.results_dir, 'splits_{}.csv'.format(cur)))
+    save_splits(datasets, ['train', 'val', 'test'], os.path.join(args.results_dir, 'splits_{}.csv'.format(cur)), args=args)
     print('Done!')
     print("Training on {} samples".format(len(train_split)))
     print("Validating on {} samples".format(len(val_split)))
@@ -290,16 +291,27 @@ def train_loop_clam(epoch, model, loader, optimizer, n_classes, bag_weight, writ
 
 
 
+    #wandb.log({
+    #    #"fold_num": fold_num,
+    #    "Step": epoch,
+    #    "train_loss": train_loss,
+    #    "train_error": train_error,
+    #    "train_clustering_loss": train_inst_loss,
+    #    "train normal and NDBE acc": per_class_acc[0],
+    #    #"train GM acc": per_class_acc[1],
+    #    "train LGD and ID": per_class_acc[1],
+    #    "train HGD and IMC acc": per_class_acc[2]
+    #    })
+
     wandb.log({
-        #"fold_num": fold_num,
+        "Step": epoch,
         "train_loss": train_loss,
         "train_error": train_error,
         "train_clustering_loss": train_inst_loss,
-        "train normal/NDBE acc": per_class_acc[0],
-        "train GM acc": per_class_acc[1],
-        "train LGD acc": per_class_acc[2],
-        "train HGD/ID/IMC acc": per_class_acc[3]
+        "train progressor acc": per_class_acc[0],
+        "train non progressor acc": per_class_acc[1],
         })
+
     print('train_loss: {:.4f}, train_error: {:.4f}, train_clustering_loss: {:.4f}'.format(train_loss, train_error, train_inst_loss))
 
     if writer:
@@ -499,16 +511,27 @@ def validate_clam(cur, epoch, model, loader, n_classes, early_stopping = None, w
         
         per_class_acc.append(acc)
 
+    #wandb.log({
+    #    #"fold_num": fold_num,
+    #    "Step": epoch,
+    #    "val_loss": val_loss,
+    #    "val_error": val_error,
+    #    "val_clustering_loss": val_inst_loss,
+    #    "val normal and NDBE acc": per_class_acc[0],
+    #    #"val GM acc": per_class_acc[1],
+    #    "val LGD and ID acc": per_class_acc[1],
+    #    "val HGD and IMC acc": per_class_acc[2]
+    #    })
+    
     wandb.log({
-        #"fold_num": fold_num,
+        "Step": epoch,
         "val_loss": val_loss,
         "val_error": val_error,
         "val_clustering_loss": val_inst_loss,
-        "val normal/NDBE acc": per_class_acc[0],
-        "val GM acc": per_class_acc[1],
-        "val LGD acc": per_class_acc[2],
-        "val HGD/ID/IMC acc": per_class_acc[3]
+        "val progressor acc": per_class_acc[0],
+        "val non progressor acc": per_class_acc[1],
         })
+
 
     if early_stopping:
         assert results_dir

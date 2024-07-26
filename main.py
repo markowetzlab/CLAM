@@ -44,8 +44,8 @@ def main(args):
         seed_torch(args.seed)
 
         wandb.init(
-            project="Path_pred_UNI_feats_no_geno",
-            name=f"fold_{i}_{args.seed}_new",
+            project="Path_pred_UNI_feats_progressor_or_not_geno",
+            name=f"fold_{i}_{args.seed}",
             config={"dataset": "just_images_UNI_feats"}
         )
 
@@ -105,7 +105,7 @@ parser.add_argument('--model_type', type=str, choices=['clam_sb', 'clam_mb', 'mi
 parser.add_argument('--exp_code', type=str, help='experiment code for saving results')
 parser.add_argument('--weighted_sample', action='store_true', default=False, help='enable weighted sampling')
 parser.add_argument('--model_size', type=str, choices=['small', 'big'], default='small', help='size of model, does not affect mil')
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade','task_4_progressor_or_not', 'task_5_progressor_or_not_genomic'])
 ### CLAM specific options
 parser.add_argument('--no_inst_cluster', action='store_true', default=False,
                      help='disable instance-level clustering')
@@ -181,29 +181,71 @@ elif args.task == 'task_2_tumor_subtyping':
                             patient_strat= False,
                             ignore=[])
 elif args.task == 'task_3_esophagus_tumor_grade':
-    args.n_classes=4
-    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    args.n_classes=3
+    #dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible.csv',
                             #data_dir= os.path.join(args.data_root_dir, 'tumor_subtyping_resnet_features'),
                             data_dir = "/mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2",
                             shuffle = False, 
                             seed = args.seed, 
                             print_info = True,
-                            label_dict = {'normal': 0, 'NDBE': 0,
-                                            'GM': 1,
-                                            'LGD': 2,
-                                            'HGD': 3, 'ID': 3, 'IMC': 3
-                                        },
+                            #label_dict = {'normal': 0, 'NDBE': 0,
+                            #                'GM': 1,
+                            #                'LGD': 2,
+                            #                'HGD': 3, 'ID': 3, 'IMC': 3
+                            #            },
                             #label_dict = {'normal': 0, 'NDBE': 0,
                             #                'GM': 1,
                             #                'LGD': 2, 'ID': 2,
                             #                'HGD': 3, 'IMC': 3
                             #            },
+                            label_dict = {'normal': 0, 'NDBE': 0,
+                                            #'GM': 1,
+                                            'LGD': 1, 'ID': 1,
+                                            'HGD': 2, 'IMC': 2
+                                        },
                             patient_strat= False,
                             ignore=['(no slide submitted)'])
 
     if args.model_type in ['clam_sb', 'clam_mb']:
         assert args.subtyping 
-        
+elif args.task == 'task_4_progressor_or_not':
+    args.n_classes=2
+    #dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible_with_GB_predictions_and_CLAM_predictions.csv',
+                            #data_dir= os.path.join(args.data_root_dir, 'tumor_subtyping_resnet_features'),
+                            data_dir = "/mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2",
+                            shuffle = False, 
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'NP': 0, 'P': 1},
+                            label_col = 'Status_MT230815',
+                            case_id_col = 'case_id_SM',
+                            slide_id_col = 'slide_id_SM',
+                            patient_strat= False,
+                            ignore=['(no slide submitted)'])
+
+    if args.model_type in ['clam_sb', 'clam_mb']:
+        assert args.subtyping
+elif args.task == 'task_5_progressor_or_not_genomic':
+    args.n_classes=2
+    #dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible_with_GB_predictions_and_CLAM_predictions.csv',
+                            #data_dir= os.path.join(args.data_root_dir, 'tumor_subtyping_resnet_features'),
+                            data_dir = "/mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2",
+                            shuffle = False, 
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'NP': 0, 'P': 1},
+                            label_col = 'Status_MT230815',
+                            case_id_col = 'case_id_SM',
+                            slide_id_col = 'slide_id_SM',
+                            patient_strat= False,
+                            ignore=['(no slide submitted)'],
+                            genomic = True)
+
+    if args.model_type in ['clam_sb', 'clam_mb']:
+        assert args.subtyping           
 else:
     raise NotImplementedError
     

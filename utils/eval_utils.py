@@ -14,9 +14,13 @@ from sklearn.metrics import roc_auc_score, roc_curve, auc
 from sklearn.preprocessing import label_binarize
 import matplotlib.pyplot as plt
 
+from utils.file_utils import save_pkl, load_pkl
+
 def initiate_model(args, ckpt_path, device='cuda'):
+    print('args.n_classes: ', args.n_classes)
     print('Init Model')    
     model_dict = {"dropout": args.drop_out, 'n_classes': args.n_classes, "embed_dim": args.embed_dim}
+    print('eval_utils model_dict',model_dict)
     
     if args.model_size is not None and args.model_type in ['clam_sb', 'clam_mb']:
         model_dict.update({"size_arg": args.model_size})
@@ -34,11 +38,19 @@ def initiate_model(args, ckpt_path, device='cuda'):
     print_network(model)
 
     ckpt = torch.load(ckpt_path)
+    if 'classifier.weight' in ckpt:
+        num_classes = ckpt['classifier.weight'].size(0)
+        print(f'The number of classes in the checkpoint is: {num_classes}')
+    else:
+        print('Classifier weight not found in checkpoint')
+
     ckpt_clean = {}
     for key in ckpt.keys():
         if 'instance_loss_fn' in key:
             continue
         ckpt_clean.update({key.replace('.module', ''):ckpt[key]})
+    print('eval utils ckpt_path: ', ckpt_path)
+    print('eval utils ckpt_clean.keys(): ', ckpt_clean.keys())
     model.load_state_dict(ckpt_clean, strict=True)
 
     _ = model.to(device)
@@ -65,7 +77,8 @@ def summary(model, loader, args):
     all_labels = np.zeros(len(loader))
     all_preds = np.zeros(len(loader))
 
-    slide_ids = loader.dataset.slide_data['slide_id']
+    #slide_ids = loader.dataset.slide_data['slide_id']
+    slide_ids = loader.dataset.slide_data[args.slide_id_col]
     patient_results = {}
     for batch_idx, (data, label) in enumerate(loader):
         data, label = data.to(device), label.to(device)
@@ -86,6 +99,9 @@ def summary(model, loader, args):
         error = calculate_error(Y_hat, label)
         test_error += error
 
+    filename = os.path.join('/mnt/scratchc/fmlab/zuberi01/results_new/1_s1/', 'results_tried_2.pkl')
+    save_pkl(filename, patient_results) 
+    
     del data
     test_error /= len(loader)
 

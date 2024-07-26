@@ -1,0 +1,1019 @@
+,train,val,test
+007H002123 PR1 HIN 042 B2506.ndpi,True,False,False
+0008H050065 PR1 HIN 044 A B2506 1.ndpi,True,False,False
+0008H050065 PR1 HIN 044 D B2506 1.ndpi,True,False,False
+0010H055745 PR1 HIN 043 A B2506 1.ndpi,True,False,False
+0010H055745 PR1 HIN 043 B B2506 1.ndpi,True,False,False
+0010H056029 PR1 HIN 044 B2506 1.ndpi,True,False,False
+0011H056158 PR1 HIN 046 B2506 1.ndpi,True,False,False
+0011H056696 PR1 HIN 042 A B2506 1.ndpi,True,False,False
+001H056696 PR1 HIN 042 B B2506 1.ndpi,True,False,False
+011H056696 PR1 HIN 042 C B2506.ndpi  ,True,False,False
+(no slide submitted),True,False,False
+11H 11088 B2819.ndpi,True,False,False
+14H20004097 B4511 1.ndpi,True,False,False
+14H20012469 A1 B4716.ndpi,True,False,False
+14H20002521 A1 B4716.ndpi,True,False,False
+14H20006938 B4511 1.ndpi,True,False,False
+16H20012567 B5654 A1.ndpi,True,False,False
+16H20012567 B5654 B1.ndpi,True,False,False
+16H20012567 B5654 C1.ndpi,True,False,False
+H0401210 Y PR1 HIN 042 D B2506 1.ndpi,True,False,False
+H09 3253 A1 B2819.ndpi,True,False,False
+(no slide submitted),True,False,False
+H12 5558 A1 B2819.ndpi,True,False,False
+H14 0018783 B4511 1 A1.ndpi,True,False,False
+H14 0018783 B4511 1 B1.ndpi,True,False,False
+S00 10253 1 G3497.ndpi,True,False,False
+S00 1179 1 G3497.ndpi,True,False,False
+S00 8854 1 G3497.ndpi,True,False,False
+PS01.12544 L1-3.ndpi,True,False,False
+S01 13538 1 G3497.ndpi,True,False,False
+S01 25234 1 G3497.ndpi,True,False,False
+S01 5485 1 1 G3497.ndpi,True,False,False
+S02 10740 A 1 G3497.ndpi,True,False,False
+S03 13633 2 1 G3497.ndpi,True,False,False
+S03 17567 3 1 G3497.ndpi,True,False,False
+S03 17567 4 1 G3497.ndpi,True,False,False
+S03 20688 1 1 G3497.ndpi,True,False,False
+PS03.22236 1 L1-3.ndpi,True,False,False
+S03 25534 1 1 G3497.ndpi,True,False,False
+S03 25534 2 1 G3497.ndpi,True,False,False
+S03 25534 3 1 G 3497.ndpi,True,False,False
+S03 7754 2 1 G3497.ndpi,True,False,False
+S04 10605 1 1 G3497.ndpi,True,False,False
+S04 10605 2 1 G3497.ndpi,True,False,False
+S04 22107 1 1 G3497.ndpi,True,False,False
+S04 7967 1 G3497.ndpi,True,False,False
+S05 13824 2 1 G3497.ndpi,True,False,False
+S05 13824 4 1 G3497.ndpi,True,False,False
+S05 13824 5 1 G3497.ndpi,True,False,False
+S05 14483 2 1 G3497.ndpi,True,False,False
+S05 14483 3 1 G3497.ndpi,True,False,False
+S05 25114 1 G3497.ndpi,True,False,False
+S05 26238 2 1 G3497.ndpi,True,False,False
+S05 4520 1 G3497.ndpi,True,False,False
+PS06.10100 1 L1-3.ndpi,True,False,False
+PS06.10100 2 L1-3.ndpi,True,False,False
+S06 12757 B4716.ndpi,True,False,False
+S06 18691 1 1 G3497.ndpi,True,False,False
+S06 18691 2 1 G3497.ndpi,True,False,False
+S06 24093 1 1 G3497.ndpi,True,False,False
+S06 24093 2 1 G3497.ndpi,True,False,False
+S06 24093 3 1 G3497.ndpi,True,False,False
+PS06.25271 2 L1-3.ndpi,True,False,False
+S06 27234 1 G3497.ndpi,True,False,False
+S06 27235 1 G3497.ndpi,True,False,False
+S06 27864 1 1 G3497.ndpi,True,False,False
+S06 27864 2 1 G3497.ndpi,True,False,False
+S06 27864 3 1 G3497.ndpi,True,False,False
+S06 27864 4 1 G3497.ndpi,True,False,False
+S06 29724 2 1 G3497.ndpi,True,False,False
+S06 3063 1 1 G3497.ndpi,True,False,False
+S06 3063 2 1 G3497.ndpi,True,False,False
+S06 9769 1 1 G3497.ndpi,True,False,False
+PS06.9769 2 L1-3.ndpi,True,False,False
+PS06.9769 3 L1-3.ndpi,True,False,False
+PS06.9769 4 L1-3.ndpi,True,False,False
+PS07.10596 1 L1-3.ndpi,True,False,False
+PS07.10596 2 L1-3.ndpi,True,False,False
+PS07.10596 3 L1-3.ndpi,True,False,False
+PS07.1232 2 L1-3.ndpi,True,False,False
+PS07.1232 3 L1-3.ndpi,True,False,False
+S07 12904 1 1 G3497.ndpi,True,False,False
+S07 12904 2 1 G3497.ndpi,True,False,False
+S07 12904 3 1 G3497.ndpi,True,False,False
+S07 14133 1 1 G3497.ndpi,True,False,False
+S07 14133 2 1 G3497.ndpi,True,False,False
+S07 14133 3 1 G3497.ndpi,True,False,False
+PS07.14412 1 L1-3.ndpi,True,False,False
+S07 18294 2 1 G3497.ndpi,True,False,False
+PS07.21145 1 L1-3.ndpi,True,False,False
+S07 21723 1 G3497.ndpi,True,False,False
+S07 23037 1 1 G3497.ndpi,True,False,False
+S07 23037 2 1 G3497.ndpi,True,False,False
+S07 24350 1 1 G3497.ndpi,True,False,False
+S07 24350 2 1 G3497.ndpi,True,False,False
+PS07.26587 1 L1-3.ndpi,True,False,False
+S07 28120 1 G3497.ndpi,True,False,False
+PS07.29728 2 L1-3.ndpi,True,False,False
+PS07.29728 4 L1-3.ndpi,True,False,False
+PS07.29728 6 L1-3.ndpi,True,False,False
+S07 3154 2 1 G3497.ndpi,True,False,False
+S07 4850 2 1 G3497.ndpi,True,False,False
+S07 4850 3 1 G3497.ndpi,True,False,False
+S08 6265 2 1 G3497.ndpi,True,False,False
+S07 6600 1 G3497.ndpi,True,False,False
+PS08.11837 1 L1-3.ndpi,True,False,False
+PS08.11837 3 L1-3.ndpi,True,False,False
+PS08.11837 4 L1-3.ndpi,True,False,False
+PS08.11929 L1-3.ndpi,True,False,False
+S08 14139 1 1 G3497.ndpi,True,False,False
+S08 14139 2 1 G3497.ndpi,True,False,False
+S08 14139 3 1 G3497.ndpi,True,False,False
+PS08.16574 L1-2.ndpi,True,False,False
+S08 17862 1 G3497.ndpi,True,False,False
+S08 18460 B4716 1.ndpi,True,False,False
+S08 18460 B4716 2.ndpi,True,False,False
+S08 18460 B4716 3.ndpi,True,False,False
+S08 19637 1 1 G3497.ndpi,True,False,False
+S08 19637 3 1 G3497.ndpi,True,False,False
+PS08.19718 3 L1-2.ndpi,True,False,False
+PS08.19718 4 L1-2.ndpi,True,False,False
+PS08.24273 1 L1-2.ndpi,True,False,False
+PS08.24273 2 L1-2.ndpi,True,False,False
+PS08.24273 3 L1-2.ndpi,True,False,False
+PS08.24273 4 L1-2.ndpi,True,False,False
+PS08.24816 2 L1-2.ndpi,True,False,False
+PS08.24816 3 L1-2.ndpi,True,False,False
+S08 24817 2 2 G3497.ndpi,True,False,False
+S08 24817 3 1 G3497.ndpi,True,False,False
+S08 27228 2 1 G3497.ndpi,True,False,False
+S08 27228 3 1 G3497.ndpi,True,False,False
+S08 29585 1 1 G3497.ndpi,True,False,False
+S08 30298 1 1 G3497.ndpi,True,False,False
+S08 30298 2 1 G3497.ndpi,True,False,False
+S08 30298 3 1 G3497.ndpi,True,False,False
+S08 31203 1 1 G3497.ndpi,True,False,False
+S08 31203 2 1 G3497.ndpi,True,False,False
+S08 31203 3 1 G3497.ndpi,True,False,False
+S08 31203 4 1 G3497.ndpi,True,False,False
+S08 31491 1 G3497.ndpi,True,False,False
+S08 31492 1 1 G3497.ndpi,True,False,False
+S08 31492 2 1 G3497.ndpi,True,False,False
+S08 31492 3 1 G3497.ndpi,True,False,False
+S08 31492 4 1 G3497.ndpi,True,False,False
+S08 31492 5 1 G3497.ndpi,True,False,False
+S08 31865 1 G3497.ndpi,True,False,False
+S08 32190 2 1 G3497.ndpi,True,False,False
+S08 32190 3 1 G3497.ndpi,True,False,False
+S08 3370 1 1 G3497.ndpi,True,False,False
+S08 3370 2 1 G3497.ndpi,True,False,False
+S08 3370 3 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS09.11197 L1-2.ndpi,True,False,False
+S09 13161 1 G3497.ndpi,True,False,False
+S09 14351 1 1 G3497.ndpi,True,False,False
+S09 14351 2 1 G3497.ndpi,True,False,False
+S09 14351 3 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+PS09.14676 4 L1-2.ndpi,True,False,False
+PS09.14676 5 L1-2.ndpi,True,False,False
+PS09.14676 6 L1-2.ndpi,True,False,False
+S09 15033 2 1 G3497.ndpi,True,False,False
+S09 15033 3 1 G3497.ndpi,True,False,False
+S09 15033 4 1 G3497.ndpi,True,False,False
+S09 15033 5 1 G3497.ndpi,True,False,False
+S09 15033 6 1 G3497.ndpi,True,False,False
+S09 15033 7 1 G3497.ndpi,True,False,False
+S09 15033 8 1 G3497.ndpi,True,False,False
+S09 15033 9 1 G3497.ndpi,True,False,False
+S09 19125 1 1 G3497.ndpi,True,False,False
+S09 19125 2 1 G3497.ndpi,True,False,False
+S09 19125 3 1 G3497.ndpi,True,False,False
+PS09.19274 2 L1-2.ndpi,True,False,False
+PS09.19274 3 L1-2.ndpi,True,False,False
+S09 21538 1 G3497.ndpi,True,False,False
+PS09.21556 1 L1-2.ndpi,True,False,False
+PS09.21556 2 L1-2.ndpi,True,False,False
+PS09.21556 3 L1-2.ndpi,True,False,False
+PS09.23946 2 L1-2.ndpi,True,False,False
+PS09.23946 3 L1-2.ndpi,True,False,False
+PS09.24956 L1-2.ndpi,True,False,False
+PS09.29443 1 L1-2.ndpi,True,False,False
+PS09.29443 1 L3-4.ndpi,True,False,False
+S09 29443 2 1 G3497.ndpi,True,False,False
+S09 29443 3 1 G3497.ndpi,True,False,False
+S09 30575 1 G3497.ndpi,True,False,False
+S09 31571 1 1 G3497.ndpi,True,False,False
+S09 31571 2 1 G3497.ndpi,True,False,False
+PS09.33003 1 L1-2.ndpi,True,False,False
+PS09.33003 2 L1-2.ndpi,True,False,False
+S09 3636 1 G3497.ndpi,True,False,False
+S09 3639 1 1 G3497.ndpi,True,False,False
+S09 3639 2 1 G3497.ndpi,True,False,False
+PS09.4319 1 L1-2.ndpi,True,False,False
+PS09.4319 2 L1-2.ndpi,True,False,False
+PS09.4319 2 L3-4.ndpi,True,False,False
+PS09.4319 4 L1-2.ndpi,True,False,False
+S09 5925 1 1 G3497.ndpi,True,False,False
+S09 5925 2 1 G3497.ndpi,True,False,False
+S09 5925 3 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+S10 13122 1 1 G3497.ndpi,True,False,False
+S10 13122 2 1 G3497.ndpi,True,False,False
+S10 13122 3 1 G3497.ndpi,True,False,False
+PS10 14749 1 HE B2506 1.ndpi,True,False,False
+S10 14809 1 1 G3497.ndpi,True,False,False
+S10 14809 2 1 G3497.ndpi,True,False,False
+S10 14809 3 1 G3497.ndpi,True,False,False
+S10 18229 1 G3497.ndpi,True,False,False
+PS10.22536 1 L1-2.ndpi,True,False,False
+PS10.22536 2 L1-2.ndpi,True,False,False
+S10 23700 2 1 G3497.ndpi,True,False,False
+S10 23700 3 1 G3497.ndpi,True,False,False
+PS10.23954 2 L1-3.ndpi,True,False,False
+PS10.23954 3 L1-2.ndpi,True,False,False
+PS10.23954 4 L1-2.ndpi,True,False,False
+PS10.23954 5 L1-2.ndpi,True,False,False
+PS10.27054-1 L1-2.ndpi,True,False,False
+PS10.27054 2 L1-2.ndpi,True,False,False
+PS10.27054 3 L1-2.ndpi,True,False,False
+S10 27749 1 1 G3497.ndpi,True,False,False
+S10 27749 2 1 G3497.ndpi,True,False,False
+S10 31149 1 1 G3497.ndpi,True,False,False
+S10 31149 2 1 G3497.ndpi,True,False,False
+PS10.32234 1 L1-2.ndpi,True,False,False
+PS10.32234 2 L1-2.ndpi,True,False,False
+PS10.32234 2 L3-4.ndpi,True,False,False
+PS10.32234 3 L1-2.ndpi,True,False,False
+S10 32352 1 1 G3497.ndpi,True,False,False
+S10 32352 2 1 G3497.ndpi,True,False,False
+S10 32352 3 1 G3497.ndpi,True,False,False
+S10 32352 4 1 G3497.ndpi,True,False,False
+S10 4466 1 G3497.ndpi,True,False,False
+S10 5186 1 1 G3497.ndpi,True,False,False
+S10 5186 2 1 G3497.ndpi,True,False,False
+S10 5189 1 1 G3497.ndpi,True,False,False
+S10 5189 2 1 G3497.ndpi,True,False,False
+S10 5189 3 1 G3497.ndpi,True,False,False
+S10 5189 4 1 G3497.ndpi,True,False,False
+S10 5189 5 1 G3497.ndpi,True,False,False
+S10 5358 1 G3497.ndpi,True,False,False
+PS10.914 1 L1-2.ndpi,True,False,False
+S11 11808 1 1 G3497.ndpi,True,False,False
+S11 11808 2 1 G3497.ndpi,True,False,False
+S11 13463 1 G3497.ndpi,True,False,False
+S11 2394 1 1 G3497.ndpi,True,False,False
+S11 2394 2 1 G3497.ndpi,True,False,False
+S11 2394 3 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+S11 3064 1 1 G3497.ndpi,True,False,False
+S11 3064 2 1 G3497.ndpi,True,False,False
+S11 31992 1 G3497.ndpi,True,False,False
+S11 4118 1 G3497.ndpi,True,False,False
+S11 7749 1 1 G3497.ndpi,True,False,False
+S11 7749 2 1 G3497.ndpi,True,False,False
+S11 7749 3 1 G3497.ndpi,True,False,False
+S11 7749 4 1 G3497.ndpi,True,False,False
+S11 7749 5 1 G3497.ndpi,True,False,False
+S11 7749 6 1 G3497.ndpi,True,False,False
+PS12.14387 1 L1-2.ndpi,True,False,False
+PS12.14387 2 L1-2.ndpi,True,False,False
+PS12.14387 3 L1-2.ndpi,True,False,False
+PS12.14387 4 L1-2.ndpi,True,False,False
+PS12.15809 3 L1-2.ndpi,True,False,False
+PS12.15809 5 L1-2.ndpi,True,False,False
+PS12.15809 6 L1-2.ndpi,True,False,False
+PS12 16249 B5654 1.ndpi,True,False,False
+PS12 16249 B5654 2.ndpi,True,False,False
+PS12 16249 B5654 3.ndpi,True,False,False
+PS12 16249 B5654 4.ndpi,True,False,False
+PS12 16249 B5654 5.ndpi,True,False,False
+PS12.16323 3 L1-2.ndpi,True,False,False
+PS12.16323 4 L1-2.ndpi,True,False,False
+PS12 26697 4 B4511 1.ndpi,True,False,False
+PS12 2830 B4511 1.ndpi,True,False,False
+PS12.28553 3 L1-2.ndpi,True,False,False
+PS12.28553 4 L1-2.ndpi,True,False,False
+PS12.28553 5 L1-2.ndpi,True,False,False
+S12 31097 B4716.ndpi,True,False,False
+PS12.31611 3 L1-2.ndpi,True,False,False
+PS12.31611 4 L1-2.ndpi,True,False,False
+PS12.31611 4 L3-4.ndpi,True,False,False
+PS12.31611 5 L1-2.ndpi,True,False,False
+PS12.31611 5 L3-4.ndpi,True,False,False
+PS12.31611 6 L1-2.ndpi,True,False,False
+S12 4116 2 1 G3497.ndpi,True,False,False
+S12 4116 3 1 G3497.ndpi,True,False,False
+PS12.7418 L1-2.ndpi,True,False,False
+S12 7612 1 1 G3497.ndpi,True,False,False
+S12 7612 2 1 G3497.ndpi,True,False,False
+S12 7612 3 1 G3497.ndpi,True,False,False
+PS12.7804 4 L1-3.ndpi,True,False,False
+PS12.7804 6 L1-2.ndpi,True,False,False
+PS13.16331 5 L1-3.ndpi,True,False,False
+PS13.16331 6 L1-3.ndpi,True,False,False
+PS13.16331 7 L1-3.ndpi,True,False,False
+PS13.16331 8 L1-3.ndpi,True,False,False
+PS13.16331 8 L4.ndpi,True,False,False
+PS13.19407 3 L1-3.ndpi,True,False,False
+PS13.19407 4 L1-3.ndpi,True,False,False
+PS13.19407 6 L1-3.ndpi,True,False,False
+PS13.24179 1 L1-3.ndpi,True,False,False
+PS13.24179 2 L1-3.ndpi,True,False,False
+PS13.24179 3 L1-3.ndpi,True,False,False
+PS13.30772 1 L1-3.ndpi,True,False,False
+PS13.30772 2 L1-3.ndpi,True,False,False
+PS13.30772 3 L1-3.ndpi,True,False,False
+PS13.30772 4 L1-3.ndpi,True,False,False
+PS13.30772 5 L1-3.ndpi,True,False,False
+S13 32546 B4716.ndpi,True,False,False
+PS13 32963 1 HE B2506 1.ndpi,True,False,False
+PS13 32963 2 HE B2506 1.ndpi,True,False,False
+PS13 32963 3 HE B2506 1.ndpi,True,False,False
+PS13 5884 1 B4511 1.ndpi,True,False,False
+PS13 5884 2 B4511 1.ndpi,True,False,False
+PS13.7465 1 L1-3.ndpi,True,False,False
+PS13.7465 2 L1-3.ndpi,True,False,False
+PS13.7465 3 L1-3.ndpi,True,False,False
+PS14 01492 B5654 1.ndpi,True,False,False
+PS14 01492 B5654 2.ndpi,True,False,False
+PS14 01492 B5654 3.ndpi,True,False,False
+PS14.17866 3 L1-3.ndpi,True,False,False
+PS14.17866 4 L1-3.ndpi,True,False,False
+PS14.17866 5 L1-3.ndpi,True,False,False
+PS14 24169 2 B4511 1.ndpi,True,False,False
+PS14 24169 3 B4511 1.ndpi,True,False,False
+PS15 13830 1 B B4511 1.ndpi,True,False,False
+PS15 13830 1 C B4511 1.ndpi,True,False,False
+PS15.30997 B1-1 L1-3.ndpi,True,False,False
+PS15.30997 C1-1 L1-3.ndpi,True,False,False
+PS15.30997 D1-1 L1-3.ndpi,True,False,False
+PS15.36337 C1-1 L1-3.ndpi,True,False,False
+PS15.36337 F1-1 L1-3.ndpi,True,False,False
+PS16.05617 E1-1 L1-3.ndpi,True,False,False
+PS16.05617 G1-1 L1-3.ndpi,True,False,False
+PS16.18236 A1-1 L1-3.ndpi,True,False,False
+PS16.18236 B1-1 L1-3.ndpi,True,False,False
+PS16.18236 C1-1 L1-3.ndpi,True,False,False
+PS16.18236 D1-1 L1-3.ndpi,True,False,False
+PS16.18236 E1-1 L1-3.ndpi,True,False,False
+PS16 34842 B5654 A.ndpi,True,False,False
+PS16 34842 B5654 B.ndpi,True,False,False
+PS16 34842 B5654 C.ndpi,True,False,False
+PS16 34842 B5654 D.ndpi,True,False,False
+PS16 34842 B5654 E.ndpi,True,False,False
+PS16 34842 B5654 F.ndpi,True,False,False
+PS16 34842 B5654 G.ndpi,True,False,False
+PS17.08687 B1-1 L1-3.ndpi,True,False,False
+PS17.08687 C1-1 L1-3.ndpi,True,False,False
+PS17.08687 D1-1 L1-3.ndpi,True,False,False
+PS17.08687 E1-1 L1-3.ndpi,True,False,False
+S98 16649 B 1 G3497.ndpi,True,False,False
+S10 2584 A.ndpi,True,False,False
+S10 10838 1A B4716.ndpi,True,False,False
+S10 10838 2A B4716.ndpi,True,False,False
+S10 10838 3A B4716.ndpi,True,False,False
+S15 05619 1A.ndpi,True,False,False
+S15 05619 2A.ndpi,True,False,False
+S15 05619 3A.ndpi,True,False,False
+S15 10986 B5654 1A.ndpi,True,False,False
+S15 10986 B5654 2A.ndpi,True,False,False
+S15 10986 B5654 3A.ndpi,True,False,False
+S15 10986 B5654 4A.ndpi,True,False,False
+S15 10986 B5654 5A.ndpi,True,False,False
+S15 10986 B5654 6A.ndpi,True,False,False
+S00 13134 1 G3497.ndpi,True,False,False
+PS00.19020 A L1-3.ndpi,True,False,False
+PS00.19020 B L1-3.ndpi,True,False,False
+S00 21863 1 G3497.ndpi,True,False,False
+PS00.23369 L1-3.ndpi,True,False,False
+PS01.13529 L1-3.ndpi,True,False,False
+PS01.15853 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS01.20211 2 L1-3.ndpi,True,False,False
+PS01 2084 2A 1 B2326.ndpi,True,False,False
+PS01.20969 L1-3.ndpi,True,False,False
+S01 24702 1 G3497.ndpi,True,False,False
+PS01.24958 1 L1-3.ndpi,True,False,False
+PS01 7463 1A 1 B2326.ndpi,True,False,False
+PS01.7463 A.ndpi,True,False,False
+PS01.8628 L1-3.ndpi,True,False,False
+S01 8695 1 G3497.ndpi,True,False,False
+PS02.14422 L1-2.ndpi,True,False,False
+S02 14752 B 1 G3497.ndpi,True,False,False
+S02 14752 A 1 G3497.ndpi,True,False,False
+PS02 16842 1 B2100.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS02.16853 L1-3.ndpi,True,False,False
+PS02.18820 L1.ndpi,True,False,False
+S02 19825 1 G3497.ndpi,True,False,False
+PS02.21171 1 L1-3.ndpi,True,False,False
+S02 24006 1 G3497.ndpi,True,False,False
+PS02.25977 L1-3.ndpi,True,False,False
+PS02.6510 L1-3.ndpi,True,False,False
+S03 13100 2 1 G3497.ndpi,True,False,False
+S03 13100 3 1 G3497.ndpi,True,False,False
+S03 15189 1 1 G3497.ndpi,True,False,False
+S03 15189 2 1 G3497.ndpi,True,False,False
+S03 18884 1 G3497.ndpi,True,False,False
+PS03.20692 1 L1-3.ndpi,True,False,False
+PS03.20692 2 L1-3.ndpi,True,False,False
+PS03.20692 3 L1-3.ndpi,True,False,False
+PS03.24969 2 L1-3.ndpi,True,False,False
+PS03.9409 1 L1-3.ndpi,True,False,False
+PS03.9409 2 L1-3.ndpi,True,False,False
+PS03.9409 3 L1-3.ndpi,True,False,False
+PS03.9409 4 L1-3.ndpi,True,False,False
+PS04.12107 3 L1-3.ndpi,True,False,False
+S04 13292 1 1 G3497.ndpi,True,False,False
+S04 13292 2 1 G3497.ndpi,True,False,False
+S04 13292 3 1 G3497.ndpi,True,False,False
+PS04.13298 1 L1-3.ndpi,True,False,False
+PS04.13298 2 L1-3.ndpi,True,False,False
+S04 19743 1 G3497.ndpi,True,False,False
+S04 23324 1 1 G3497.ndpi,True,False,False
+S04 23324 3 1 G3497.ndpi,True,False,False
+S05 13213 1 1 G3497.ndpi,True,False,False
+S05 13213 2 1 G3497.ndpi,True,False,False
+S05 15805 1 G3497.ndpi,True,False,False
+PS05.19445 2 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+S05 28850 1 1 G3497.ndpi,True,False,False
+S05 28850 2 1 G3497.ndpi,True,False,False
+S05 28850 3 1 G3497.ndpi,True,False,False
+S05 28853 1 G3497.ndpi,True,False,False
+PS05.3209 1A PR1 WSH 084 B3144.ndpi,True,False,False
+PS05.3209 2A PR1 WSH 084 B3144 1.ndpi,True,False,False
+PS05.3209 3A PR1 WSH 084 B3144 1.ndpi,True,False,False
+S05 3610 1 G3497.ndpi,True,False,False
+S05 3820 2 1 G3497.ndpi,True,False,False
+S05 3820 3 1 G3497.ndpi,True,False,False
+S05 3820 4 1 G3497.ndpi,True,False,False
+S05 4350 1 1 G3497.ndpi,True,False,False
+S05 4350 2 1 G3497.ndpi,True,False,False
+S06 15087 1 1 G3497.ndpi,True,False,False
+S06 15087 2 1 G3497.ndpi,True,False,False
+S06 15087 3 1 G3497.ndpi,True,False,False
+S06 26502 1 1 G3497.ndpi,True,False,False
+S06 26502 2 1 G3497.ndpi,True,False,False
+S07 12905 3 1 G3497.ndpi,True,False,False
+S07 12905 4 1 G3497.ndpi,True,False,False
+S07 12905 5 1 G3497.ndpi,True,False,False
+PS08 1975 1A 1 B2326.ndpi,True,False,False
+PS08.1975 2A B2326 1.ndpi,True,False,False
+PS08.1975 3A.ndpi,True,False,False
+S08 23284 3 1 G3497.ndpi,True,False,False
+PS08 31808 1 HE B2738 1.ndpi,True,False,False
+PS08 31808 1 HE B2738 2.ndpi,True,False,False
+PS08 31808 1 HE B2738 3.ndpi,True,False,False
+PS08.5957 A PR1 WSH 084 B3144 1.ndpi,True,False,False
+PS09.00674 A PR1 WSH 081 B3144 1.ndpi,True,False,False
+PS09.15326 2 L1-2.ndpi,True,False,False
+S09 24835 1 1 G3497.ndpi,True,False,False
+S09 24835 2 1 G3497.ndpi,True,False,False
+S09 27854 1 1 G3497.ndpi,True,False,False
+S09 27854 2 1 G3497.ndpi,True,False,False
+S09 27854 3 1 G3497.ndpi,True,False,False
+S09 29448 3 1 G3497.ndpi,True,False,False
+PS09.9939 2A PR1 WSH 080 B3144 1.ndpi,True,False,False
+PS10.07590 A PR1 WSH 084 B3144 1.ndpi,True,False,False
+S10 15513 1 1 G3497.ndpi,True,False,False
+S10 15513 2 1 G3497.ndpi,True,False,False
+S10 15513 3 1 G3497.ndpi,True,False,False
+PS10.8665 1.ndpi,True,False,False
+PS10.8665 2 L1-2.ndpi,True,False,False
+PS10.8665 3 L1-2.ndpi,True,False,False
+PS10.8665 4 L1-2.ndpi,True,False,False
+PS10.8665 5 L1-2.ndpi,True,False,False
+S10 9596 2 1 G3497.ndpi,True,False,False
+S10 9596 G3497 3 1.ndpi,True,False,False
+S10 9596 4 1 G3497.ndpi,True,False,False
+S11 22345 1 G3497.ndpi,True,False,False
+S11 30898 1 1 G3497.ndpi,True,False,False
+S11 7347 1 1 G3497.ndpi,True,False,False
+S11 7347 2 1 G3497.ndpi,True,False,False
+PS11.8370 1 L1-2.ndpi,True,False,False
+PS11.8370 2 L1-2.ndpi,True,False,False
+MISSING FILE,True,False,False
+PS11 996 1 HE B2738.ndpi,True,False,False
+PS12.11997 A PR1 WSH 084 B314 1.ndpi,True,False,False
+PS12 9881 1 HE B2738 1.ndpi,True,False,False
+PS12 9881 1 HE B2738 2.ndpi,True,False,False
+PS13.07092  A PR1 WSH 081 B3144 1.ndpi,True,False,False
+PS13.10468 L1-3.ndpi,True,False,False
+PS13.14907 PR1 WSH 080 1A B3144.ndpi,True,False,False
+PS13 3568 1 HE 1 B2738 1.ndpi,True,False,False
+PS13 3568 1 HE 1 B2738 2.ndpi,True,False,False
+S94 3856 1 G3497.ndpi,True,False,False
+S96 13273 1 G3497.ndpi,True,False,False
+S96 13713 L1-3.ndpi,True,False,False
+PS96.15429 L1-3.ndpi,True,False,False
+S96 3013 A 1 G3497.ndpi,True,False,False
+S96 3013 C 1 G3497.ndpi,True,False,False
+PS97.12532 L1-3.ndpi,True,False,False
+S97 14458 A 1 G3497.ndpi,True,False,False
+PS97.14920 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+S98 11710 1 G3497.ndpi,True,False,False
+S98 11971 1 G3497.ndpi,True,False,False
+PS98.13862 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS98.15886 B L1-3.ndpi,True,False,False
+PS98.2194 L1-3.ndpi,True,False,False
+PS98.2204.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS99.11834 L1-3.ndpi,True,False,False
+PS99.16471 L1-3.ndpi,True,False,False
+S99.18356 1 L1-3.ndpi,True,False,False
+S99.18356 2 L1-3.ndpi,True,False,False
+S99.18356 3 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS07.28390 2 L1-3.ndpi,True,False,False
+PS07.28390 3 L1-3.ndpi,True,False,False
+PS09.1941 2 L1-2.ndpi,True,False,False
+PS09.32737 L1-2.ndpi,True,False,False
+PS10.3741 2 L1-2.ndpi,True,False,False
+13H 20009427 A1 PR1 BED 060 B2842 1.ndpi,True,False,False
+13H 20009427 B1 PR1 BED 060 B2842 1.ndpi,True,False,False
+13H 20009427 C1 PR1 BED 060 B2842 1.ndpi,True,False,False
+H14 19755 A1 B2819.ndpi,True,False,False
+PS00.14399 L1-3.ndpi,True,False,False
+S02 24579 1 G3497.ndpi,True,False,False
+S02 26111 1 G3497.ndpi,True,False,False
+S03 24965 1 G3497.ndpi,True,False,False
+S03 3252 A 1 G3497.ndpi,True,False,False
+S05 22728 2 1 G3497.ndpi,True,False,False
+S05 22728 3 1 G3497.ndpi,True,False,False
+S05 25906 1 G3497.ndpi,True,False,False
+S06 10943 1 G3497.ndpi,True,False,False
+S06 18688 1 G3497.ndpi,True,False,False
+S06 19414 2 1 G3497.ndpi,True,False,False
+S06 19414 3 1 G3497.ndpi,True,False,False
+S06 19414 4 1 G3497.ndpi,True,False,False
+S06 19414 5 1 G3497.ndpi,True,False,False
+S06 2525 1 1 G3497.ndpi,True,False,False
+S06 2525 2 1 G3497.ndpi,True,False,False
+S06 25487 1 1 G3497.ndpi,True,False,False
+S06 25487 2 1 G3497.ndpi,True,False,False
+S06 25487 3 1 G3497.ndpi,True,False,False
+S06 25487 4 1 G3497.ndpi,True,False,False
+S07 18287 1 1 G3497.ndpi,True,False,False
+S07 18287 2 1 G3497.ndpi,True,False,False
+S07 3690 2 1 G3497.ndpi,True,False,False
+S08 5155 1 1 G3497.ndpi,True,False,False
+S08 5155 2 1 G3497.ndpi,True,False,False
+PS13.20504 1 B2506 1.ndpi,True,False,False
+PS13.20504 2 B2506 1.ndpi,True,False,False
+PS13.7299 1 B20506 1.ndpi,True,False,False
+PS13.7299 2 B2506 1.ndpi,True,False,False
+PS14.4661 1 B2506 1.ndpi,True,False,False
+PS14.4661 2 B2506 1.ndpi,True,False,False
+PS16 35585 A1 35654.ndpi,True,False,False
+PS16 37667 B5654 A.ndpi,True,False,False
+PS16 37667 B5654 B.ndpi,True,False,False
+PS16 37667 B5654 C.ndpi,True,False,False
+PS16 37667 B5654 D.ndpi,True,False,False
+S04 9692 1A.ndpi,True,False,False
+S04 9692 2A.ndpi,True,False,False
+S04 9692 3A.ndpi,True,False,False
+S04 9692 4A.ndpi,True,False,False
+S15 03464 1A B5664.ndpi,True,False,False
+S15 03464 2A B5664.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS01 19139 2 B2100 1.ndpi,True,False,False
+S01 3206 1 1 G3497.ndpi,True,False,False
+PS02.10762 A L1.ndpi,True,False,False
+PS02.10762 A L2.ndpi,True,False,False
+S02 10762 A L3.ndpi,True,False,False
+PS02 16857 A 1 B2100.ndpi,True,False,False
+S02 18243 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+S03 10316 1 1 G3497.ndpi,True,False,False
+S03 10316 2 1 G3497.ndpi,True,False,False
+PS03.16878 1 L1-3.ndpi,True,False,False
+PS03.16878 2 L1-3.ndpi,True,False,False
+PS03.16878 3 L1-3.ndpi,True,False,False
+S03 18634 3 1 G3497.ndpi,True,False,False
+PS03.20500 L1-3.ndpi,True,False,False
+S03 3690 2 1 G3497.ndpi,True,False,False
+S03 3690 5 1 G3497.ndpi,True,False,False
+S03 3690 4 1 G 3497.ndpi,True,False,False
+PS03.4909 2 L1-3.ndpi,True,False,False
+S03.4909 2 L4-6.ndpi,True,False,False
+PS05.7284 1 L1-3.ndpi,True,False,False
+PS05.7284 1 L4-6.ndpi,True,False,False
+PS05.7284 1 L7-9.ndpi,True,False,False
+PS05.7284 3 L1-3.ndpi,True,False,False
+PS06.22271 2 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+S07 5459 2 1 G3497.ndpi,True,False,False
+S07 5459 3 1 G3497.ndpi,True,False,False
+S08 10102 1 1 G3497.ndpi,True,False,False
+S08 10102 2 1 G3497.ndpi,True,False,False
+S08 10102 3 1 G3497.ndpi,True,False,False
+PS08.3363 L1-3.ndpi,True,False,False
+S08 5805 2 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+PS13.55683 P34249 1 B2506 1.ndpi,True,False,False
+PS13.55683 P34249 2 B2506 1.ndpi,True,False,False
+PS13.55683 P34249 3 B2506 1.ndpi,True,False,False
+PS13.56864 P34683 1 B2506 11.ndpi,True,False,False
+PS13.56864 P34683 2 HE B2506 11.ndpi,True,False,False
+PS13.56864 P34683 GOJ 3 HE B2506 11.ndpi,True,False,False
+PS14 53839 1 PR1 HIN 064 B2842 1.ndpi,True,False,False
+PS14 53839 2 PR1 HIN 064 B2842 1.ndpi,True,False,False
+PS14 53839 3 PR1 HIN 064 B2842 1.ndpi,True,False,False
+PS15.09522 1A PR1 WSH 084 B3144.ndpi,True,False,False
+PS15.09522 2A PR1 WSH 084 B3144 1.ndpi,True,False,False
+PS99.6922 L1-3.ndpi,True,False,False
+14H20003508 A1 B2819.ndpi,True,False,False
+14H20003508 B1 B2819.ndpi,True,False,False
+14H20003508 C1 B2819.ndpi,True,False,False
+16H0002210 A1 PR1 WSH 081 B3144 1.ndpi,True,False,False
+H14 4034 A1 B2819.ndpi,True,False,False
+H14 4034 B1 B2819.ndpi,True,False,False
+H14 4034 C1 B2819.ndpi,True,False,False
+H15 6349 A1 B2819.ndpi,True,False,False
+H15 8672 A1 B2819.ndpi,True,False,False
+HS15 00358 A PR1 HIN 064 B2842 1.ndpi,True,False,False
+HS15 00358 B PR1 HIN 064 B2842 1.ndpi,True,False,False
+S02 14143 1 G3497.ndpi,True,False,False
+S02 6966 A 1 G3497.ndpi,True,False,False
+S02 6966 B 1 G3497.ndpi,True,False,False
+S03 10941 1 1 G3497.ndpi,True,False,False
+S03 10941 2 1 G3497.ndpi,True,False,False
+S03 10941 3 1 G3497.ndpi,True,False,False
+S03 11452 1 1 G3497.ndpi,True,False,False
+S03 11452 2 1 G3497.ndpi,True,False,False
+DUPLICATE,True,False,False
+S03 11452 3 1 G3497.ndpi,True,False,False
+DUPLICATE,True,False,False
+S03 11453 1 1 G3497.ndpi,True,False,False
+S03 11453 2 1 G3497.ndpi,True,False,False
+S03 11453 3 1 G3497.ndpi,True,False,False
+S03 11453 4 1 G3497.ndpi,True,False,False
+S03 11453 5 1 G3497.ndpi,True,False,False
+S03 11453 6 1 G3497.ndpi,True,False,False
+S03 11453 7 1 G3497.ndpi,True,False,False
+S03 11453 8 1 G3497.ndpi,True,False,False
+S03 12205 1 G3497.ndpi,True,False,False
+S03 13079 1 1 G3497.ndpi,True,False,False
+S03 13079 2 1 G3497.ndpi,True,False,False
+S03 25991 1 1 G3497.ndpi,True,False,False
+S03 25991 2 1 G3497.ndpi,True,False,False
+S04 15529 2 1 G3497.ndpi,True,False,False
+S04 15529 4 1 G3497.ndpi,True,False,False
+S04 15529 5 1 G3497.ndpi,True,False,False
+S04 15529 6 1 G3497.ndpi,True,False,False
+S04 1887 1 1 G3497.ndpi,True,False,False
+S04 1887 2 1 G3497.ndpi,True,False,False
+S05 1556 1 1 G3497.ndpi,True,False,False
+S05 16790 1 G3497.ndpi,True,False,False
+S05 1870 1 1 G3497.ndpi,True,False,False
+S05 2088 1 G3497.ndpi,True,False,False
+S05 28222 2 1 G3497.ndpi,True,False,False
+S05 29401 1 1 G3497.ndpi,True,False,False
+S05 29401 2 1 G3497.ndpi,True,False,False
+S05 29401 3 1 G3497.ndpi,True,False,False
+S05 29421 1 1 G3497.ndpi,True,False,False
+S05 29421 2 1 G3497.ndpi,True,False,False
+S05 29421 3 1 G3497.ndpi,True,False,False
+S05 29558 2 1 G3497.ndpi,True,False,False
+S06 10942 1 1 G3497.ndpi,True,False,False
+S06 10942 2 1 G 3497.ndpi,True,False,False
+S06 15248 1 1 G3497.ndpi,True,False,False
+S06 15248 2 1 G3497.ndpi,True,False,False
+S06 15248 3 1 G3497.ndpi,True,False,False
+S06 17063 1 1 G3497.ndpi,True,False,False
+S06 17063 2 1 G3497.ndpi,True,False,False
+S06 18687 2 1 G3497.ndpi,True,False,False
+S06 18687 3 1 G3497.ndpi,True,False,False
+S06 18687 4 1 G3497.ndpi,True,False,False
+S06 18687 5 1 G3497.ndpi,True,False,False
+S06 18687 6 1 G3497.ndpi,True,False,False
+S06 2768 2 1 G3497.ndpi,True,False,False
+S06 2768 3 1 G3497.ndpi,True,False,False
+S06 30201 A 1 G3497.ndpi,True,False,False
+S06 30201 B 1 G3497.ndpi,True,False,False
+S06 30201 C 1 G3497.ndpi,True,False,False
+S07 18290 2 1 G3497.ndpi,True,False,False
+S07 18290 3 1 G3497.ndpi,True,False,False
+S07 18290 4 1 G3497.ndpi,True,False,False
+S07 18290 6 1 G3497.ndpi,True,False,False
+S07 20470 1 G3497.ndpi,True,False,False
+S07 6264 1 1 G3497.ndpi,True,False,False
+S07 6264 2 1 G3497.ndpi,True,False,False
+S07 6264 3 1 G3497.ndpi,True,False,False
+S07 6264 4 1 G3497.ndpi,True,False,False
+S07 6264 5 1 G3497.ndpi,True,False,False
+S07 6264 6 1 G3497.ndpi,True,False,False
+S08 13811 1 1 G3497.ndpi,True,False,False
+S08 13811 2 1 G3497.ndpi,True,False,False
+S08 768 2 1 G3497.ndpi,True,False,False
+S08 768 4 1 G3497.ndpi,True,False,False
+PS09 22927 1 HE B2506 1.ndpi,True,False,False
+PS09 22927 2 HE B2506 1.ndpi,True,False,False
+PS09 22927 3 HE B2506 1.ndpi,True,False,False
+S10 29683 1 1 G3497.ndpi,True,False,False
+S10 29683 2 1 G3497.ndpi,True,False,False
+S10 29683 3 1 G3497.ndpi,True,False,False
+PS10.29683 4 L1-2.ndpi,True,False,False
+S10 33896 1A 1 G3497.ndpi,True,False,False
+S10 33896 1B 1 G3497.ndpi,True,False,False
+S10 33896 1C 1 G3497.ndpi,True,False,False
+S10 33896 1D 1 G3497.ndpi,True,False,False
+S10 33896 2A 1 G3497.ndpi,True,False,False
+S10 5754 1A 1 G3497.ndpi,True,False,False
+S10 5754 1B 1 G3497.ndpi,True,False,False
+S10 5754 2A 1 G3497.ndpi,True,False,False
+S10 5754 2B 1 G3497.ndpi,True,False,False
+S10 5754 3A 1 G3497.ndpi,True,False,False
+S10 5754 3B 1 G3497.ndpi,True,False,False
+S11 12772 A 1 G3497.ndpi,True,False,False
+S11 13875 1 1 G3497.ndpi,True,False,False
+S11 13875 2 1 G3497.ndpi,True,False,False
+S11 13875 3 1 G3497.ndpi,True,False,False
+S11 18063 2 1 G3497.ndpi,True,False,False
+S11 18063 3 1 G3497.ndpi,True,False,False
+S11 18063 4 1 G3497.ndpi,True,False,False
+S11 33564 2 1 G3497.ndpi,True,False,False
+MISSING FILE,True,False,False
+S11 33564 4 1 G3497.ndpi,True,False,False
+S11 34502 2 1 G3497.ndpi,True,False,False
+S11 34502 1 1 G3497.ndpi,True,False,False
+PS11.35675 2 B2506.ndpi,True,False,False
+PS11.35675 3 B2506 1.ndpi,True,False,False
+S11 8909 1 G3497.ndpi,True,False,False
+S12 15806 1 1 G3497.ndpi,True,False,False
+S12 15806 2 1 G3497.ndpi,True,False,False
+S12 15806 3 1 G3497.ndpi,True,False,False
+S12 19128 1 1 G3497.ndpi,True,False,False
+S12 19128 2 1 G3497.ndpi,True,False,False
+S12 19128 3 1 G3497.ndpi,True,False,False
+S12 19128 4 1 G3497.ndpi,True,False,False
+S12 19128 5 1 G3497.ndpi,True,False,False
+S12 24093 1 1 G3497.ndpi,True,False,False
+S12 24093 2 1 G3497.ndpi,True,False,False
+S12 24093 3 1 G3497.ndpi,True,False,False
+S12 24093 4 1 G3497.ndpi,True,False,False
+S12 24093 5 1 G3497.ndpi,True,False,False
+S12 24093 6 1 G3497.ndpi,True,False,False
+S12 24243 1A 1 G3497.ndpi,True,False,False
+S12 24243 1B 1 G3497.ndpi,True,False,False
+S12 24243 2A 1 G3497.ndpi,True,False,False
+PS12 34740 1 HE B2506 1.ndpi,True,False,False
+PS14.27637 1 B2506 1.ndpi,True,False,False
+PS14.27637 2 B2506 1.ndpi,True,False,False
+PS14.27637 3 B2506 1.ndpi,True,False,False
+PS14 54453 P36997 1 HE B2506 1.ndpi,True,False,False
+PS14 54453 P36997 2 HE B2506 1.ndpi,True,False,False
+PS14 54453 P36997 3 HE B2506 1.ndpi,True,False,False
+PS15 13181 1 HE B2506 1.ndpi,True,False,False
+PS15 29920 1 HE B2738 A.ndpi,True,False,False
+PS15 29920 1 HE B2738 B.ndpi,True,False,False
+PS15 30992 1 HE B2738 A.ndpi,True,False,False
+PS15 30992 1 HE B2738 B.ndpi,True,False,False
+PS15 30992 1 HE B2738 C.ndpi,True,False,False
+S00 2077 B 1 G3497.ndpi,True,False,False
+S01 16830 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+PS02.22887 A L1.ndpi,True,False,False
+(no slide submitted),True,False,False
+PS02.25471 L1-3.ndpi,True,False,False
+(no slide submitted),True,False,False
+S03 3690 3 1 G3497.ndpi,True,False,False
+PS03 5803 A 1 B2326.ndpi,True,False,False
+S04 1883 2 1 G3497.ndpi,True,False,False
+PS04 4853 1A 1 B2326.ndpi,True,False,False
+(no slide submitted),True,False,False
+S05 3359 1 1 G3497.ndpi,True,False,False
+S05 3359 2 1 G3497.ndpi,True,False,False
+S05 3359 3 1 G3497.ndpi,True,False,False
+S05 3359 4 1 G3497.ndpi,True,False,False
+S05 3359 5 1 G3497.ndpi,True,False,False
+S05 3359 6 1 G3497.ndpi,True,False,False
+PS05 8156 A 1 B2326.ndpi,True,False,False
+PS07.20474 1 L1-3.ndpi,True,False,False
+PS07.20474 2 L1-3.ndpi,True,False,False
+PS07.20474 2 L4-6.ndpi,True,False,False
+PS07.20474 3 L1-3.ndpi,True,False,False
+PS07.20474 4 L1-3.ndpi,True,False,False
+S07 29061 1 1 G3497.ndpi,True,False,False
+S07 29061 2 1 G3497.ndpi,True,False,False
+(no slide submitted),True,False,False
+(no slide submitted),True,False,False
+S10 3861 2 1 G3497.ndpi,True,False,False
+S10 3861 3 1 G3497.ndpi,True,False,False
+PS11.7372 L1-2.ndpi,True,False,False
+PS13.58316 P35140 B2506 1.ndpi,True,False,False
+PS13.58316 P35140 2 B2506.ndpi,True,False,False
+PS13.58316 P35140 3 B2506.ndpi,True,False,False
+PS14.51711 P35995 1 B2506.ndpi,True,False,False
+PS14.51711 P35995 2 B2506.ndpi,True,False,False
+PS14.51711 P35995 3 B2506 1.ndpi,True,False,False
+PS14.51711 P35995 4 B2506 1.ndpi,True,False,False
+PS15 29689 B PR1 HIN 072 B2842 1.ndpi,True,False,False
+PS16.14348 A1-1 L1-3.ndpi,True,False,False
+PS16.14348 B1-1 L1-3.ndpi,True,False,False
+PS16.14348 C1-1 L1-3.ndpi,True,False,False
+S04 17178 1 1 G3497.ndpi,False,True,False
+DUPLICATE,False,True,False
+S04 17178 2 1 G3497.ndpi,False,True,False
+DUPLICATE,False,True,False
+PS12.7446 1 L1-2.ndpi,False,True,False
+14H20013262 B4511 1.ndpi,False,True,False
+S06 28937 1 1 G3497.ndpi,False,True,False
+S06 28937 2 1 G3497.ndpi,False,True,False
+S06 28937 3 1 G3497.ndpi,False,True,False
+PS07.3110 L1-L3.ndpi,False,True,False
+S03 8352 2 1 G3497.ndpi,False,True,False
+S03 8352 3 1 G3497.ndpi,False,True,False
+S04 9972 2 1 G3497.ndpi,False,True,False
+S10 30834 1 1 S3497.ndpi,False,True,False
+S10 30834 2 1 S3497.ndpi,False,True,False
+S10 30834 3 1 S3497.ndpi,False,True,False
+S10 30834 4 1 S3497.ndpi,False,True,False
+S10 30834 5 1 S3497.ndpi,False,True,False
+S10 30834 6 1 S3497.ndpi,False,True,False
+PS10.24619 1 B2506 1.ndpi,False,True,False
+PS00.23902 1 L1-3.ndpi,False,True,False
+S07 3299 1 1 G3497.ndpi,False,True,False
+S07 3299 2 1 G3497.ndpi,False,True,False
+S07 3299 3 1 G3497.ndpi,False,True,False
+S07 3299 4 1 G3497.ndpi,False,True,False
+S07 3299 5 1 G3497.ndpi,False,True,False
+S07 3299 6 1 G3497.ndpi,False,True,False
+S07 3299 7 1 G3497.ndpi,False,True,False
+12H 04400 B2819.ndpi ,False,True,False
+S07 10025 2 1 G3497.ndpi,False,True,False
+PS15.07864 A1-1 L1-3.ndpi,False,True,False
+PS15.07864 C1-1 L1-3.ndpi,False,True,False
+PS15.07864 D1-1 L1-3.ndpi,False,True,False
+PS15.07864 E1-1 L1-3.ndpi,False,True,False
+PS00 4349 B2100 1.ndpi,False,True,False
+S09 9356 1 1 G3497.ndpi,False,True,False
+S09 9356 2 1 G3497.ndpi,False,True,False
+S09 9356 3 1 G3497.ndpi,False,True,False
+S09 9356 4 1 G3497.ndpi,False,True,False
+S09 9356 5 1 G3497.ndpi,False,True,False
+PS14.52598 P3628 1 B2506 11.ndpi,False,True,False
+S09 1267 1 1 G3497.ndpi,False,True,False
+S09 1267 2 1 G3497.ndpi,False,True,False
+PS10.1724 2 L1-2.ndpi,False,True,False
+S08 7117 1 1 G3497.ndpi,False,True,False
+S08 7117 2 1 G3497.ndpi,False,True,False
+S08 7117 3 1 G3497.ndpi,False,True,False
+PS98.16794 B L1-3.ndpi,False,True,False
+PS05.1452 L1-3.ndpi,False,True,False
+PS04.15000 1 L1-3.ndpi,False,True,False
+PS04.15000 5 L1-3.ndpi,False,True,False
+PS04.15000 6 L1-3.ndpi,False,True,False
+PS14 28970 B5654.ndpi,False,True,False
+PS12.3769 1 L1-2.ndpi,False,True,False
+PS12.3769 2 L1-2.ndpi,False,True,False
+PS12.3769 3 L1-2.ndpi,False,True,False
+PS12.3769 4 L1-2.ndpi,False,True,False
+0009H053851 PR1 HIN 042 B2506.ndpi,False,True,False
+PS09.6598 L1-2.ndpi,False,True,False
+S05 13211 1 1 G3497.ndpi,False,True,False
+S05 13211 2 1 G3497.ndpi,False,True,False
+S05 13211 3 1 G3497.ndpi,False,True,False
+S05 13211 4 1 G3497.ndpi,False,True,False
+S07 13507 1 1 G3497.ndpi,False,True,False
+S07 13507 2 1 G3497.ndpi,False,True,False
+S07 13507 3 1 G3497.ndpi,False,True,False
+S07 13507 4 1 G3497.ndpi,False,True,False
+PS09.7495 1 L1-2.ndpi,False,True,False
+PS09.7495 2 L1-2.ndpi,False,True,False
+PS09.7495 3 L1-2.ndpi,False,True,False
+PS09.7495 4 L1-2.ndpi,False,True,False
+PS09.3484 2 L1-2.ndpi,False,True,False
+PS09.3484 3 L1-2.ndpi,False,True,False
+PS01.13881 L1-3.ndpi,False,True,False
+S05 24375 2 1 G3497.ndpi,False,True,False
+S05 24375 3 1 G3497.ndpi,False,True,False
+S99 1288 1 G3497.ndpi,False,True,False
+12H 4299 PR1 BED 060 B2842 1.ndpi,False,True,False
+15H40000752 A1 PR1 WSH 084 B3144.ndpi,False,True,False
+15H40000752 B1 PR1 WSH 084 B3144 1.ndpi,False,True,False
+PS00 4239 B2100 1.ndpi,False,True,False
+S06 25478 1 G3497.ndpi,False,True,False
+PS00 18908 B2100 1.ndpi,False,True,False
+PS14 58170 4 PR1 HIN 072 B2842 1.ndpi,False,True,False
+S11 10033 1 1 G3497.ndpi,False,True,False
+PS11.10033 2 L1-2.ndpi,False,True,False
+S11 10033 3 1 G3497.ndpi,False,True,False
+S11 10033 4 1 G3497.ndpi,False,True,False
+PS17 03182 B5654 A.ndpi,False,True,False
+PS17 03182 B5654 B.ndpi,False,True,False
+PS17 03182 B5654 C.ndpi,False,True,False
+S06 24902 1 1 G3497.ndpi,False,True,False
+S06 24902 2 1 G3497.ndpi,False,True,False
+S06 24902 3 1 G3497.ndpi,False,True,False
+S06 24902 4 1 G3497.ndpi,False,True,False
+S12 13898 1A 1 G3497.ndpi,False,True,False
+S07 2685 1 1 G3497.ndpi,False,True,False
+PS07.2685 2 L1-3.ndpi,False,True,False
+S08 4496 1 1 G3497.ndpi,False,True,False
+S08 4496 2 1 G3497.ndpi,False,True,False
+S08 4496 3 1 G3497.ndpi,False,True,False
+S07 29421 1 1 G3497.ndpi,False,True,False
+S07 29421 2 1 G3497.ndpi,False,True,False
+S07 29421 3 1 G3497.ndpi,False,True,False
+S06 8023 1 1 G3497.ndpi,False,True,False
+S06 8023 2 1 G3497.ndpi,False,True,False
+S06 8023 3 1 G3497.ndpi,False,True,False
+S04 15487 2 1 G3497.ndpi,False,True,False
+S04 15487 3 1 G3497.ndpi,False,True,False
+S04 15487 4 1 G3497.ndpi,False,True,False
+S05 22012 1 1 G3497.ndpi,False,False,True
+S05 22012 2 1 G3497.ndpi,False,False,True
+13H7181 B5654 A.ndpi,False,False,True
+13H7181 B5654 B.ndpi,False,False,True
+13H7181 B5654 C.ndpi,False,False,True
+13H7181 B5654 D.ndpi,False,False,True
+13H7181 B5654 E.ndpi,False,False,True
+PS00.5369 A L1-3.ndpi,False,False,True
+PS00.5369 B L1-3.ndpi,False,False,True
+S00 5369 B 1 G3497.ndpi,False,False,True
+PS98.6683 L1-3.ndpi,False,False,True
+S06 13167 3 1 G3497.ndpi,False,False,True
+S09 26100 1 G3497.ndpi,False,False,True
+S09 30652 3 1 G3497.ndpi,False,False,True
+(no slide submitted),False,False,True
+S10 28692 1 1 G3497.ndpi,False,False,True
+S10 28692 2 1 G3497.ndpi,False,False,True
+H0400633 G PR1 HIN 042.ndpi,False,False,True
+S03 21209 2 1 G3497.ndpi,False,False,True
+S03 21209 3 1 G3497.ndpi,False,False,True
+S03 21209 4 1 G3497.ndpi,False,False,True
+S07 15831 1 G3497.ndpi,False,False,True
+S07 2032 1 1 G3497.ndpi,False,False,True
+S07 2032 2 1 G3497.ndpi,False,False,True
+PS07.2032 3 L1-3.ndpi,False,False,True
+PS10 3412 1 HE B2738 1.ndpi,False,False,True
+PS10 3412 1 HE B2738 2.ndpi,False,False,True
+PS01 8837 1A B2326.ndpi,False,False,True
+PS01 8837 2A B2326.ndpi,False,False,True
+PS01 8837 3A B2326.ndpi,False,False,True
+PS08.27238 1 L1-2.ndpi,False,False,True
+PS08.27238 2 L1-2.ndpi,False,False,True
+S06 16417 1 G3497.ndpi,False,False,True
+S99 5169 B 1 G3497.ndpi,False,False,True
+S11 14382 1 1 G3497.ndpi,False,False,True
+S11 14382 2 1 G3497.ndpi,False,False,True
+S11 14382 3 1 G3497.ndpi,False,False,True
+S13 2298 2.ndpi,False,False,True
+S06 24262 1 1 G3497.ndpi,False,False,True
+S07 13509 1 1 G3497.ndpi,False,False,True
+S07 13509 2 1 G3497.ndpi,False,False,True
+PS07.13509 3 L1-3.ndpi,False,False,True
+PS07.13509 4 L1-3.ndpi,False,False,True
+S12 15136 2 1 G3497.ndpi,False,False,True
+S12 15136 3 1 G3497.ndpi,False,False,True
+S09 26616 2 1 G3497.ndpi,False,False,True
+S09 26616 4 1 G3497.ndpi,False,False,True
+PS00.10208 L1-3.ndpi,False,False,True
+PS10.32235 L1-2.ndpi,False,False,True
+S07 23563 2 1 G3497.ndpi,False,False,True
+S08 31581 1 1 G3497.ndpi,False,False,True
+S08 31581 2 1 G3497.ndpi,False,False,True
+S08 31581 3 1 G3497.ndpi,False,False,True
+S09 2597 1 G3497.ndpi,False,False,True
+PS11.05006 A PR1 WSH 081 B3144 1.ndpi,False,False,True
+PS09 5439 1 HE B2738 1.ndpi,False,False,True
+S09 21890 2 1 G3497.ndpi,False,False,True
+S09 21890 3 1 G3497.ndpi,False,False,True
+S11 1713 1 1 G3497.ndpi,False,False,True
+S11 1713 2 1 G3497.ndpi,False,False,True
+S03 24409 1 1 G3497.ndpi,False,False,True
+MISSING FILE,False,False,True
+S03 24409 3 1 G3497.ndpi,False,False,True
+S03 24409 4 1 G3497.ndpi,False,False,True
+13H 05569 PR1 BED 060 1 B2842 A.ndpi,False,False,True
+13H 05569 PR1 BED 060 1 B2842 B.ndpi,False,False,True
+13H 05569 PR1 BED 060 1 B2842 C.ndpi,False,False,True
+13H 05569 PR1 BED 060 1 B2842 D.ndpi,False,False,True
+S10 11150 1 1 G3497.ndpi,False,False,True
+S10 11150 2 1 G3497.ndpi,False,False,True
+S10 11150 3 1 G3497.ndpi,False,False,True
+PS01 07226 B2100 1.ndpi,False,False,True
+PS99.20058 L1-3.ndpi,False,False,True
+S02 2006 1 G3497.ndpi,False,False,True
+S05 16892 1 G3497.ndpi,False,False,True
+PS15.06411 A PR1 WSH 081 B3144 1.ndpi,False,False,True
+14H 20011912 A1 PR1 BED 060 B2842 1.ndpi,False,False,True
+PS08.3273 A PR WSH 081 B3144 1.ndpi,False,False,True
+S11 6310 1 1 G3497.ndpi,False,False,True
+S11 6310 2 1 G3497.ndpi,False,False,True
+S11 6310 3 1 G3497.ndpi,False,False,True
+S02 20337 1 G3497.ndpi,False,False,True
+11H 03415 PR1 BED 060 B2842 1.ndpi,False,False,True
+S12 19867 1 1 G3497.ndpi,False,False,True
+S12 19867 2 1 G3497.ndpi,False,False,True
+S12 19867 3 1 G3497.ndpi,False,False,True
+S12 19867 4 1 G3497.ndpi,False,False,True
+S12 19867 5 1 G3497.ndpi,False,False,True
+S12 19867 6 1 G3497.ndpi,False,False,True
+S09 32585 1 1 G3497.ndpi,False,False,True
+S09 32585 2 1 G3497.ndpi,False,False,True
+S09 32585 3 1 G3497.ndpi,False,False,True
+S09 32585 4 1 G3497.ndpi,False,False,True
+S08 27893 1 1 G3497.ndpi,False,False,True
+S08 27893 2 1 G3497.ndpi,False,False,True
+S08 27893 3 1 G3497.ndpi,False,False,True

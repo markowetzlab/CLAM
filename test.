@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python /mnt/scratchc/fmlab/zuberi01/CLAM/eval.py --k 3 --models_exp_code 1_s1 --save_exp_code /mnt/scratchc/fmlab/zuberi01/results_new/1_s1 --task task_3_esophagus_tumor_grade --model_type clam_sb --results_dir /mnt/scratchc/fmlab/zuberi01/results_new --data_root_dir /mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2 --embed_dim 1024

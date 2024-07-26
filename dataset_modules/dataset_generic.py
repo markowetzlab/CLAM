@@ -13,8 +13,11 @@ import h5py
 
 from utils.utils import generate_split, nth
 
-def save_splits(split_datasets, column_keys, filename, boolean_style=False):
-	splits = [split_datasets[i].slide_data['slide_id'] for i in range(len(split_datasets))]
+def save_splits(split_datasets, column_keys, filename, boolean_style=False, args=None):
+	#if args == None:
+	splits = [split_datasets[i].slide_data['slide_id_SM'] for i in range(len(split_datasets))]
+	#else:
+#		splits = [split_datasets[i].slide_data[args.slide_id_col] for i in range(len(split_datasets))]
 	if not boolean_style:
 		df = pd.concat(splits, ignore_index=True, axis=1)
 		df.columns = column_keys
@@ -39,6 +42,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		ignore=[],
 		patient_strat=False,
 		label_col = None,
+		case_id_col = None,
+		slide_id_col = None,
 		patient_voting = 'max',
 		):
 		"""
@@ -60,6 +65,13 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		if not label_col:
 			label_col = 'label'
 		self.label_col = label_col
+		if not case_id_col:
+			case_id_col = 'case_id'
+		self.case_id_col = case_id_col
+		if not slide_id_col:
+			slide_id_col = 'slide_id'
+		self.slide_id_col = slide_id_col
+
 
 		slide_data = pd.read_csv(csv_path)
 		slide_data = self.filter_df(slide_data, filter_dict)
@@ -90,13 +102,22 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			self.slide_cls_ids[i] = np.where(self.slide_data['label'] == i)[0]
 
 	def patient_data_prep(self, patient_voting='max'):
-		patients = np.unique(np.array(self.slide_data['case_id'])) # get unique patients
+		print('\n')
+		print('XXXX')
+		print('case_id_col: ', self.case_id_col)
+		print('XXXX')
+
+		print('\n')
+
+
+
+		patients = np.unique(np.array(self.slide_data[self.case_id_col])) # get unique patients
 		patient_labels = []
 		
 		for p in patients:
-			locations = self.slide_data[self.slide_data['case_id'] == p].index.tolist()
+			locations = self.slide_data[self.slide_data[self.case_id_col] == p].index.tolist()
 			assert len(locations) > 0
-			label = self.slide_data['label'][locations].values
+			label = self.slide_data[self.label_col][locations].values
 			if patient_voting == 'max':
 				label = label.max() # get patient label (MIL convention)
 			elif patient_voting == 'maj':
@@ -133,7 +154,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 	def __len__(self):
 		if self.patient_strat:
-			return len(self.patient_data['case_id'])
+			return len(self.patient_data[self.case_id_col])
 
 		else:
 			return len(self.slide_data)
@@ -158,7 +179,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 					}
 
 		if self.patient_strat:
-			settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data['case_id'])})
+			settings.update({'cls_ids' : self.patient_cls_ids, 'samples': len(self.patient_data[self.case_id_col])})
 		else:
 			settings.update({'cls_ids' : self.slide_cls_ids, 'samples': len(self.slide_data)})
 
@@ -176,8 +197,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 
 			for split in range(len(ids)): 
 				for idx in ids[split]:
-					case_id = self.patient_data['case_id'][idx]
-					slide_indices = self.slide_data[self.slide_data['case_id'] == case_id].index.tolist()
+					case_id = self.patient_data[self.case_id_col][idx]
+					slide_indices = self.slide_data[self.slide_data[self.case_id_col] == case_id].index.tolist()
 					slide_ids[split].extend(slide_indices)
 
 			self.train_ids, self.val_ids, self.test_ids = slide_ids[0], slide_ids[1], slide_ids[2]
@@ -190,7 +211,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		split = split.dropna().reset_index(drop=True)
 
 		if len(split) > 0:
-			mask = self.slide_data['slide_id'].isin(split.tolist())
+			mask = self.slide_data[self.slide_id_col].isin(split.tolist())
 			df_slice = self.slide_data[mask].reset_index(drop=True)
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
@@ -206,7 +227,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			merged_split.extend(split)
 
 		if len(split) > 0:
-			mask = self.slide_data['slide_id'].isin(merged_split)
+			mask = self.slide_data[self.slide_id_col].isin(merged_split)
 			df_slice = self.slide_data[mask].reset_index(drop=True)
 			split = Generic_Split(df_slice, data_dir=self.data_dir, num_classes=self.num_classes)
 		else:
@@ -243,7 +264,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		
 		else:
 			assert csv_path 
-			all_splits = pd.read_csv(csv_path, dtype=self.slide_data['slide_id'].dtype)  # Without "dtype=self.slide_data['slide_id'].dtype", read_csv() will convert all-number columns to a numerical type. Even if we convert numerical columns back to objects later, we may lose zero-padding in the process; the columns must be correctly read in from the get-go. When we compare the individual train/val/test columns to self.slide_data['slide_id'] in the get_split_from_df() method, we cannot compare objects (strings) to numbers or even to incorrectly zero-padded objects/strings. An example of this breaking is shown in https://github.com/andrew-weisman/clam_analysis/tree/main/datatype_comparison_bug-2021-12-01.
+			all_splits = pd.read_csv(csv_path, dtype=self.slide_data[self.slide_id_col].dtype)  # Without "dtype=self.slide_data['slide_id'].dtype", read_csv() will convert all-number columns to a numerical type. Even if we convert numerical columns back to objects later, we may lose zero-padding in the process; the columns must be correctly read in from the get-go. When we compare the individual train/val/test columns to self.slide_data['slide_id'] in the get_split_from_df() method, we cannot compare objects (strings) to numbers or even to incorrectly zero-padded objects/strings. An example of this breaking is shown in https://github.com/andrew-weisman/clam_analysis/tree/main/datatype_comparison_bug-2021-12-01.
 			train_split = self.get_split_from_df(all_splits, 'train')
 			val_split = self.get_split_from_df(all_splits, 'val')
 			test_split = self.get_split_from_df(all_splits, 'test')
@@ -251,7 +272,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		return train_split, val_split, test_split
 
 	def get_list(self, ids):
-		return self.slide_data['slide_id'][ids]
+		return self.slide_data[self.slide_id_col][ids]
 
 	def getlabel(self, ids):
 		return self.slide_data['label'][ids]
@@ -315,17 +336,20 @@ class Generic_WSI_Classification_Dataset(Dataset):
 class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 	def __init__(self,
 		data_dir, 
+		genomic=None,
 		**kwargs):
 	
 		super(Generic_MIL_Dataset, self).__init__(**kwargs)
 		self.data_dir = data_dir
 		self.use_h5 = False
+		if genomic:
+			self.genomic = True
 
 	def load_from_h5(self, toggle):
 		self.use_h5 = toggle
 
 	def __getitem__(self, idx):
-		slide_id = self.slide_data['slide_id'][idx]
+		slide_id = self.slide_data['slide_id_SM'][idx]
 
 		# If slide_id has an extenstion (such as .ndpi), we remove it
 		# This is important because we add ".pt" at the end of the slide_id when trying to access the file
@@ -337,18 +361,22 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		if type(self.data_dir) == dict:
 			source = self.slide_data['source'][idx]
 			data_dir = self.data_dir[source]
-			print('11111111')
+			#print('11111111')
 		else:
 			data_dir = self.data_dir
-			print('222222222222')
+			#print('222222222222')
 
 		if not self.use_h5:
 			if self.data_dir:
 				print(data_dir)
-				full_path = os.path.join(data_dir, 'pt_files', '{}.pt'.format(slide_id))
+				#full_path = os.path.join(data_dir, 'pt_files_updated', '{}.pt'.format(slide_id))
+				full_path = os.path.join(data_dir, 'pt_files_updated', '{}.pt'.format(slide_id))
 				features = torch.load(full_path)
 				return features, label
-			
+			#elif self.data_dir and self.genomic == True:
+		#		full_path = os.path.join(data_dir, 'pt_files_updated', '{}.pt'.format(slide_id))
+	#			features = torch.load(full_path)
+	#			return features, label
 			else:
 				return slide_id, label
 

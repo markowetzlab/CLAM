@@ -39,14 +39,20 @@ parser.add_argument('--fold', type=int, default=-1, help='single fold to evaluat
 parser.add_argument('--micro_average', action='store_true', default=False, 
                     help='use micro_average instead of macro_avearge for multiclass AUC')
 parser.add_argument('--split', type=str, choices=['train', 'val', 'test', 'all'], default='test')
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade', 'task_4_progressor_or_not'])
 parser.add_argument('--drop_out', type=float, default=0.25, help='dropout')
 parser.add_argument('--embed_dim', type=int, default=1024)
+parser.add_argument('--slide_id_col', type=str, default='slide_id')
 args = parser.parse_args()
 
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 args.save_dir = os.path.join('./eval_results', 'EVAL_' + str(args.save_exp_code))
+args.save_dir = "/mnt/scratchc/fmlab/zuberi01/results_new/1_s1/eval_new/"
+print('\n')
+print('args.save_exp_code',args.save_exp_code, str(args.save_exp_code))
+print('args.save_dir',args.save_dir)
+print('\n')
 args.models_dir = os.path.join(args.results_dir, str(args.models_exp_code))
 
 os.makedirs(args.save_dir, exist_ok=True)
@@ -91,7 +97,7 @@ elif args.task == 'task_2_tumor_subtyping':
                             ignore=[])
 
 # elif args.task == 'tcga_kidney_cv':
-#     args.n_classes=3
+#     args.n_classes=3_
 #     dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/tcga_kidney_clean.csv',
 #                             data_dir= os.path.join(args.data_root_dir, 'tcga_kidney_20x_features'),
 #                             shuffle = False, 
@@ -99,6 +105,44 @@ elif args.task == 'task_2_tumor_subtyping':
 #                             label_dict = {'TCGA-KICH':0, 'TCGA-KIRC':1, 'TCGA-KIRP':2},
 #                             patient_strat= False,
 #                             ignore=['TCGA-SARC'])
+
+
+elif args.task == 'task_3_esophagus_tumor_grade':
+    args.n_classes=3
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible.csv',
+                            #data_dir= os.path.join(args.data_root_dir, 'tumor_subtyping_resnet_features'),
+                            data_dir = "/mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2",
+                            shuffle = False, 
+                            #seed = args.seed, 
+                            print_info = True,
+                            #label_dict = {'normal': 0, 'NDBE': 0,
+                            #                'GM': 1,
+                            #                'LGD': 2,
+                            #                'HGD': 3, 'ID': 3, 'IMC': 3
+                            #            },
+                            label_dict = {'normal': 0, 'NDBE': 0,
+                                            #'GM': 1,
+                                            'LGD': 1, 'ID': 1,
+                                            'HGD': 2, 'IMC': 2
+                                        },
+                            patient_strat= False,
+                            ignore=['(no slide submitted)'])
+elif args.task == 'task_4_progressor_or_not':
+    args.n_classes=2
+    #dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible_with_GB_predictions_and_CLAM_predictions.csv',
+                            #data_dir= os.path.join(args.data_root_dir, 'tumor_subtyping_resnet_features'),
+                            data_dir = "/mnt/scratchc/fmlab/zuberi01/saved_patches/40x_400/features2",
+                            shuffle = False, 
+                            #seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'NP': 0, 'P': 1},
+                            label_col = 'Status_MT230815',
+                            case_id_col = 'case_id_SM',
+                            slide_id_col = 'slide_id_SM',
+                            patient_strat= False,
+                            ignore=['(no slide submitted)'])
+
 
 else:
     raise NotImplementedError
@@ -117,6 +161,7 @@ if args.fold == -1:
 else:
     folds = range(args.fold, args.fold+1)
 ckpt_paths = [os.path.join(args.models_dir, 's_{}_checkpoint.pt'.format(fold)) for fold in folds]
+print('ckpt_paths', ckpt_paths)
 datasets_id = {'train': 0, 'val': 1, 'test': 2, 'all': -1}
 
 if __name__ == "__main__":

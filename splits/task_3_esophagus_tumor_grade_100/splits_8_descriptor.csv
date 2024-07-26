@@ -1,0 +1,5 @@
+,train,val,test
+normal,612,65,64
+GM,5,10,11
+LGD,104,16,15
+HGD,116,0,0

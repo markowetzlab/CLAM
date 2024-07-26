@@ -41,15 +41,15 @@ elif args.task == 'task_2_tumor_subtyping':
                             patient_voting='maj',
                             ignore=[])
 elif args.task == 'task_3_esophagus_tumor_grade':
-    args.n_classes=4
-    dataset = Generic_WSI_Classification_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    args.n_classes=3
+    dataset = Generic_WSI_Classification_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching_model_training_input_230815_merged_where_possible.csv',
                             shuffle = False, 
                             seed = args.seed, 
                             print_info = True,
                             label_dict = {'normal': 0, 'NDBE': 0,
-                                            'GM': 1,
-                                            'LGD': 2,
-                                            'HGD': 3, 'ID': 3, 'IMC': 3
+                                            #'GM': 1,
+                                            'LGD': 1, 'ID': 1,
+                                            'HGD': 2, 'IMC': 2
                                         },
                             patient_strat= True,
                             #patient_voting='maj',
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         label_fracs = [0.1, 0.25, 0.5, 0.75, 1.0]
     
     for lf in label_fracs:
-        split_dir = '/mnt/scratchc/fmlab/zuberi01/CLAM/splits/'+ str(args.task) + '_{}'.format(int(lf * 100))
+        split_dir = '/mnt/scratchc/fmlab/zuberi01/CLAM/splits2/'+ str(args.task) + '_{}'.format(int(lf * 100))
         os.makedirs(split_dir, exist_ok=True)
         dataset.create_splits(k = args.k, val_num = val_num, test_num = test_num, label_frac=lf)
         for i in range(args.k):
