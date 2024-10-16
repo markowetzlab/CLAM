@@ -319,6 +319,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		self.data_dir = data_dir
 		self.use_h5 = False
 		self.label_col_name = 'label'
+		self.pt_files_name = 'pt_files'
 
 	def load_from_h5(self, toggle):
 		self.use_h5 = toggle
@@ -334,7 +335,7 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 		if not self.use_h5:
 			if self.data_dir:
-				full_path = os.path.join(data_dir, 'pt_files', '{}.pt'.format(slide_id))
+				full_path = os.path.join(data_dir, self.pt_files_name, '{}.pt'.format(slide_id))
 				features = torch.load(full_path)
 				return features, label
 			
