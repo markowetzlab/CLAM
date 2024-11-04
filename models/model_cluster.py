@@ -46,7 +46,8 @@ class MIL_Cluster_FC(nn.Module):
 
 
     def relocate(self):
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        device = torch.device("cpu") # Just for now while debugging
+        #device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         if torch.cuda.device_count() >= 1:
             device_ids = list(range(torch.cuda.device_count()))
             self.attention_net = nn.DataParallel(self.attention_net, device_ids=device_ids).to('cuda:0')

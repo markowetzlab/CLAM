@@ -54,6 +54,22 @@ elif args.task == 'task_3_esophagus_tumor_grade':
                             patient_strat= True,
                             #patient_voting='maj',
                             ignore=[])
+
+elif args.task == 'task_4_progressor_or_not':
+    args.n_classes=2
+    dataset = Generic_WSI_Classification_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/phd/CLAM/matching_rows.csv',
+                            shuffle = False, 
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'NP':0,
+                                          'P':1},
+                            patient_strat= False,
+                            ignore=['(no slide submitted)']
+                            )
+
+    if args.model_type in ['clam_sb', 'clam_mb']:
+        assert args.subtyping     
+
 elif args.task == 'atypia':
     args.n_classes=2
     dataset = Generic_WSI_Classification_Dataset(csv_path = 'dataset_csv/delta_atypia.csv',

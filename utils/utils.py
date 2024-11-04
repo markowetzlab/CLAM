@@ -56,6 +56,7 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 	if not testing:
 		if training:
 			if weighted:
+				print('len split dataset', len(split_dataset))
 				weights = make_weights_for_balanced_classes_split(split_dataset)
 				loader = DataLoader(split_dataset, batch_size=1, sampler = WeightedRandomSampler(weights, len(weights)), collate_fn = collate_MIL, **kwargs)	
 			else:
@@ -145,7 +146,8 @@ def calculate_error(Y_hat, Y):
 	return error
 
 def make_weights_for_balanced_classes_split(dataset):
-	N = float(len(dataset))                                           
+	N = float(len(dataset))   
+	print('N',N)                                        
 	weight_per_class = [N/len(dataset.slide_cls_ids[c]) for c in range(len(dataset.slide_cls_ids))]                                                                                                     
 	weight = [0] * int(N)                                           
 	for idx in range(len(dataset)):   

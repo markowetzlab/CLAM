@@ -11,8 +11,8 @@ from torch.utils.data import Dataset
 from utils.utils import generate_split, nth
 
 
-def save_splits(split_datasets, column_keys, filename, boolean_style=False):
-	splits = [split_datasets[i].slide_data['slide_id'] for i in range(len(split_datasets))]
+def save_splits(split_datasets, column_keys, filename, slide_col='slide_id', boolean_style=False):
+	splits = [split_datasets[i].slide_data[slide_col] for i in range(len(split_datasets))]
 	if not boolean_style:
 		df = pd.concat(splits, ignore_index=True, axis=1)
 		df.columns = column_keys
@@ -50,6 +50,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			ignore (list): List containing class labels to ignore
 		"""
 		self.label_dict = label_dict
+		print('label_dict:', self.label_dict)
 		self.num_classes = len(set(self.label_dict.values()))
 		self.seed = seed
 		self.print_info = print_info
@@ -76,6 +77,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		self.cls_ids_prep()
 
 		if print_info:
+			print('YYYYYY')
 			self.summarize()
 
 	def cls_ids_prep(self):
@@ -112,11 +114,11 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		if label_col != 'label':
 			data['label'] = data[label_col].copy()
 
-		mask = data['label'].isin(ignore)
+		mask = data[label_col].isin(ignore)
 		data = data[~mask]
 		data.reset_index(drop=True, inplace=True)
 		for i in data.index:
-			key = data.loc[i, 'label']
+			key = data.loc[i, label_col]
 			data.at[i, 'label'] = label_dict[key]
 
 		return data
@@ -252,7 +254,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		return self.slide_data[self.slide_col][ids]
 
 	def getlabel(self, ids):
-		return self.slide_data['label'][ids]
+		return self.slide_data[self.label_col][ids]
 
 	def __getitem__(self, idx):
 		return None
@@ -313,20 +315,25 @@ class Generic_WSI_Classification_Dataset(Dataset):
 class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 	def __init__(self,
 		data_dir,
+		slide_col,
 		**kwargs):
-	
+
 		super(Generic_MIL_Dataset, self).__init__(**kwargs)
 		self.data_dir = data_dir
 		self.use_h5 = False
-		self.label_col_name = 'label'
+		self.label_col = 'label'
 		self.pt_files_name = 'pt_files'
+		self.slide_col = slide_col
 
 	def load_from_h5(self, toggle):
 		self.use_h5 = toggle
 
 	def __getitem__(self, idx):
-		slide_id = self.slide_data['slide_id'][idx]
-		label = self.slide_data[self.label_col_name][idx]
+		slide_id = self.slide_data[self.slide_col][idx]
+		#print('SLIDE ID', slide_id)
+		slide_id = slide_id.replace('.ndpi', '') # remove .ndpi from slide_id
+		#print('SLIDE ID', slide_id)
+		label = self.slide_data[self.label_col][idx]
 		if type(self.data_dir) == dict:
 			source = self.slide_data['source'][idx]
 			data_dir = self.data_dir[source]
@@ -336,6 +343,8 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		if not self.use_h5:
 			if self.data_dir:
 				full_path = os.path.join(data_dir, self.pt_files_name, '{}.pt'.format(slide_id))
+				print('full path:',full_path)
+				# I think that when its getting the file from the CSV it has ".ndpi" at the end in there and we need to remove it when fetching it from the column
 				features = torch.load(full_path)
 				return features, label
 			
@@ -354,6 +363,9 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 
 class Generic_Split(Generic_MIL_Dataset):
 	def __init__(self, slide_data, data_dir=None, num_classes=2):
+		self.label_col = 'label'
+		self.slide_col = 'slide_id'
+		self.pt_files_name = 'pt_files_merged_histo_cnv_v2'
 		self.use_h5 = False
 		self.slide_data = slide_data
 		self.data_dir = data_dir

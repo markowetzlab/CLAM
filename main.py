@@ -90,7 +90,7 @@ parser.add_argument('--model_type', type=str, choices=['clam_sb', 'clam_mb', 'mi
 parser.add_argument('--exp_code', type=str, help='experiment code for saving results')
 parser.add_argument('--weighted_sample', action='store_true', default=False, help='enable weighted sampling')
 parser.add_argument('--model_size', type=str, choices=['small', 'big'], default='small', help='size of model, does not affect mil')
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade', 'be', 'atypia'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade', 'task_4_progressor_or_not','be', 'atypia'])
 ### CLAM specific options
 parser.add_argument('--no_inst_cluster', action='store_true', default=False,
                      help='disable instance-level clustering')
@@ -103,8 +103,8 @@ parser.add_argument('--bag_weight', type=float, default=0.7,
 parser.add_argument('--B', type=int, default=8, help='numbr of positive/negative patches to sample for clam')
 parser.add_argument('--col_name', type=str, default='label', help='name of the column in the csv file that contains the labels') # add col name argument
 parser.add_argument('--pt_files_name', type=str, default='pt_files', help='name of the pt files') # add pt_files_name argument
-
-
+parser.add_argument('--case_col', type=str, default='case_id', help='name of the column in the csv file that contains the case id') # add case_col argument
+parser.add_argument('--slide_col', type=str, default='slide_id', help='name of the column in the csv file that contains the slide id') # add slide_col argument
 
 args = parser.parse_args()
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -189,17 +189,19 @@ elif args.task == 'task_3_esophagus_tumor_grade':
         assert args.subtyping 
 
 elif args.task == 'task_4_progressor_or_not':
-    args.n_classes=4
-    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/slide_matching.csv',
+    args.n_classes=2
+    dataset = Generic_MIL_Dataset(csv_path = '/mnt/scratchc/fmlab/zuberi01/phd/CLAM/matching_rows.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             seed = args.seed, 
                             print_info = True,
-                            label_col_name = 'progressor',
-                            label_dict = {'NP:',0,
-                                          'P:',1},
+                             label_col = args.col_name,
+                            label_dict = {'NP':0,
+                                          'P':1},
                             patient_strat= False,
-                            ignore=['(no slide submitted)'])
+                            ignore=['(no slide submitted)'],
+                            case_col = args.case_col,
+                            slide_col = args.slide_col)
 
     if args.model_type in ['clam_sb', 'clam_mb']:
         assert args.subtyping 
@@ -208,7 +210,7 @@ elif args.task == 'be':
     args.n_classes=2
     dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/be_he_adequate.csv',
                             data_dir= args.data_root_dir,
-                            shuffle = False, 
+                           shuffle = False, 
                             seed = args.seed, 
                             print_info = True,
                             label_dict = {'N':0, 'Y':1},
@@ -234,6 +236,7 @@ args.results_dir = os.path.join(args.results_dir, f'{args.exp_code}_{args.model_
 if not os.path.isdir(args.results_dir):
     os.mkdir(args.results_dir)
 
+print('split_dir: ', args.split_dir)
 if args.split_dir is None:
     args.split_dir = os.path.join('splits', args.task+'_{}'.format(int(args.label_frac*100)))
 else:
@@ -258,4 +261,3 @@ if __name__ == "__main__":
     results = main(args)
     print("finished!")
     print("end script")
-
