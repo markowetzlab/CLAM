@@ -10,6 +10,7 @@ from torch.utils.data import Dataset
 
 from utils.utils import generate_split, nth
 
+import warnings
 
 def save_splits(split_datasets, column_keys, filename, slide_col='slide_id', boolean_style=False):
 	splits = [split_datasets[i].slide_data[slide_col] for i in range(len(split_datasets))]
@@ -343,8 +344,9 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 		if not self.use_h5:
 			if self.data_dir:
 				full_path = os.path.join(data_dir, self.pt_files_name, '{}.pt'.format(slide_id))
-				print('full path:',full_path)
+				#print('full path:',full_path)
 				# I think that when its getting the file from the CSV it has ".ndpi" at the end in there and we need to remove it when fetching it from the column
+				warnings.filterwarnings("ignore", category=FutureWarning)
 				features = torch.load(full_path)
 				return features, label
 			

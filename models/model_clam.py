@@ -135,6 +135,7 @@ class CLAM_SB(nn.Module):
         return instance_loss, p_preds, p_targets
 
     def forward(self, h, label=None, instance_eval=False, return_features=False, attention_only=False):
+        h = h.float() # got an error when h isn't cast it seems to give a type mismatch error
         A, h = self.attention_net(h)  # NxK        
         A = torch.transpose(A, 1, 0)  # KxN
         if attention_only:
