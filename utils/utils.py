@@ -17,6 +17,8 @@ from itertools import islice
 import collections
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+import warnings
+
 class SubsetSequentialSampler(Sampler):
 	"""Samples elements sequentially from a given list of indices, without replacement.
 
@@ -32,7 +34,9 @@ class SubsetSequentialSampler(Sampler):
 	def __len__(self):
 		return len(self.indices)
 
-def collate_MIL(batch):
+def collate_MIL(batch):	
+	for item in batch:
+		print('type of item', type(item))
 	img = torch.cat([item[0] for item in batch], dim = 0)
 	label = torch.LongTensor([item[1] for item in batch])
 	return [img, label]

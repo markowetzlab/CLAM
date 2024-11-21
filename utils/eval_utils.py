@@ -44,7 +44,7 @@ def initiate_model(args, ckpt_path, device='cuda'):
 
     print_network(model)
 
-    ckpt = torch.load(ckpt_path)
+    ckpt = torch.load(ckpt_path, weights_only=False)
     ckpt_clean = {}
     for key in ckpt.keys():
         if 'instance_loss_fn' in key:
@@ -78,7 +78,27 @@ def summary(model, loader, args):
 
     slide_ids = loader.dataset.slide_data['slide_id']
     patient_results = {}
+
+    print('\n hhhhhhhh w')
+
+    print('\n')
+    print('trying')
+    print('\n')
+
+    print('len(loader): ', len(loader))
+    print('len(loader.dataset): ', len(loader.dataset))
+    print('len(loader.dataset.slide_data): ', len(loader.dataset.slide_data))
+    print('len(loader.dataset.slide_data[slide_id]): ', len(loader.dataset.slide_data['slide_id']))
+
+    # print an example from the loader
     for batch_idx, (data, label) in enumerate(loader):
+        print('XXXXXX here, batch_idx: ', batch_idx)
+        print('data: ', data)
+        print('label: ', label)
+        break
+
+    for batch_idx, (data, label) in enumerate(loader):
+        print('XXXXXX here, batch_idx: ', batch_idx)
         data, label = data.to(device), label.to(device)
         slide_id = slide_ids.iloc[batch_idx]
         with torch.no_grad():
