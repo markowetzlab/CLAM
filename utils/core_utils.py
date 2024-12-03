@@ -104,11 +104,12 @@ def train(datasets, cur, args):
     if not os.path.isdir(writer_dir):
         os.mkdir(writer_dir)
 
-    writer = None
-
     if args.log_data:
+        from torch.utils.tensorboard import SummaryWriter
+        writer = SummaryWriter(writer_dir, flush_secs=15)
         mode = 'online'
     else:
+        writer = None
         mode = 'disabled'
 
     wandb.init(
@@ -235,13 +236,29 @@ def train(datasets, cur, args):
         acc, correct, count = acc_logger.get_summary(i)
         print('class {}: acc {}, correct {}/{}'.format(i, acc, correct, count))
 
+        if writer:
+            writer.add_scalar('final/test_class_{}_acc'.format(i), acc, 0)
+
         test_acc.update({f'test/test_class_{i}_acc': acc})
 
-    test_logs = {'test/val_error': val_error, 'test/val_auc': val_auc, 'test/test_error': test_error, 'test/test_auc': test_auc}
+    test_logs = {
+        'test/val_error': val_error, 
+        'test/val_auc': val_auc, 
+        'test/test_error': test_error, 
+        'test/test_auc': test_auc
+        }
     test_logs.update(test_acc)
-    wandb.log(test_logs)
-
+    
+    wandb.log(test_logs, step=0)
     wandb.finish()
+
+    if writer:
+        writer.add_scalar('final/val_error', val_error, 0)
+        writer.add_scalar('final/val_auc', val_auc, 0)
+        writer.add_scalar('final/test_error', test_error, 0)
+        writer.add_scalar('final/test_auc', test_auc, 0)
+        writer.close()
+
     return results_dict, test_auc, val_auc, 1-test_error, 1-val_error
 
 

@@ -194,7 +194,7 @@ elif args.task == 'be':
                             ignore=[])
 elif args.task == 'atypia':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/adequate_samples.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/atypia_he_adequate.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             seed = args.seed, 

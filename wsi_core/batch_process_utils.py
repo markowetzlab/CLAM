@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import pdb
 	
 '''
 initiate a pandas df describing a list of slides to process

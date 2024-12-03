@@ -35,7 +35,7 @@ parser.add_argument('--micro_average', action='store_true', default=False,
                     help='use micro_average instead of macro_avearge for multiclass AUC')
 parser.add_argument('--split', type=str, choices=['train', 'val', 'test', 'all'], default='test')
 parser.add_argument('--log_data', action='store_true', default=False, help='log data using wandb')
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'best4_pilot_be'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'be_he_best4_pilot', 'be_he_best4_surveillance'])
 parser.add_argument('--drop_out', type=float, default=0.25, help='dropout')
 parser.add_argument('--embed_dim', type=int, default=1024)
 args = parser.parse_args()
@@ -85,8 +85,17 @@ elif args.task == 'task_2_tumor_subtyping':
                             label_dict = {'subtype_1':0, 'subtype_2':1, 'subtype_3':2},
                             patient_strat= False,
                             ignore=[])
-
-elif args.task == 'best4_pilot_be':
+elif args.task == 'be_he_delta':
+    args.n_classes=2
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/be_he_adequate.csv',
+                            data_dir= args.data_root_dir,
+                            shuffle = False, 
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'N':0, 'Y':1},
+                            patient_strat=False,
+                            ignore=[])
+elif args.task == 'be_he_best4_pilot':
     args.n_classes=2
     dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/pilot/he_be_slides.csv',
                             data_dir= args.data_root_dir,
@@ -95,7 +104,16 @@ elif args.task == 'best4_pilot_be':
                             label_dict = {'N':0, 'E':0, 'Y':1},
                             patient_strat=False,
                             ignore=[])
-    
+
+elif args.task == 'be_he_best4_surveillance':
+    args.n_classes=2
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/surveillance/he_be_slides.csv',
+                            data_dir= args.data_root_dir,
+                            shuffle = False, 
+                            print_info = True,
+                            label_dict = {1:0, 2:1, 3:1},
+                            patient_strat=False,
+                            ignore=[])
 else:
     raise NotImplementedError
 
