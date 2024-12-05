@@ -1,17 +1,12 @@
-import pickle
 import torch
 import numpy as np
 import torch.nn as nn
-import pdb
 
 import torch
 import numpy as np
 import torch.nn as nn
-from torchvision import transforms
 from torch.utils.data import DataLoader, Sampler, WeightedRandomSampler, RandomSampler, SequentialSampler, sampler
 import torch.optim as optim
-import pdb
-import torch.nn.functional as F
 import math
 from itertools import islice
 import collections
@@ -46,7 +41,7 @@ def collate_features(batch):
 def get_simple_loader(dataset, batch_size=1, num_workers=1):
 	kwargs = {'num_workers': 4, 'pin_memory': False, 'num_workers': num_workers} if device.type == "cuda" else {}
 	loader = DataLoader(dataset, batch_size=batch_size, sampler = sampler.SequentialSampler(dataset), collate_fn = collate_MIL, **kwargs)
-	return loader 
+	return loader
 
 def get_split_loader(split_dataset, training = False, testing = False, weighted = False):
 	"""
