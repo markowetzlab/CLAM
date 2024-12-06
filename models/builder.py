@@ -57,6 +57,14 @@ def get_encoder(model_name, target_img_size=224):
     elif model_name == 'virchow_v2':
         from timm.layers import SwiGLUPacked
         model = timm.create_model("hf-hub:paige-ai/Virchow2", pretrained=True, mlp_layer=SwiGLUPacked, act_layer=torch.nn.SiLU)
+    elif model_name == 'conch_v1_5':
+        try:
+            from transformers import AutoModel
+        except ImportError:
+            raise ImportError("Please install huggingface transformers (e.g. 'pip install transformers') to use CONCH v1.5")
+        titan = AutoModel.from_pretrained('MahmoodLab/TITAN', trust_remote_code=True)
+        model, _ = titan.return_conch()
+        assert target_img_size == 448, 'TITAN is used with 448x448 CONCH v1.5 features'
     else:
         raise NotImplementedError('model {} not implemented'.format(model_name))
     
