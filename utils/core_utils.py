@@ -7,6 +7,7 @@ from models.model_dsmil import *
 from models.model_mil import MIL_fc, MIL_fc_mc
 # from models.model_dgcn import DeepGraphConv
 from models.model_clam import CLAM_MB, CLAM_SB
+from models.model_abmil import AttentionMILModel
 # from models.model_cluster import MIL_Cluster_FC
 from models.model_transmil import TransMIL
 from sklearn.preprocessing import label_binarize
@@ -69,7 +70,7 @@ class EarlyStopping:
         self.counter = 0
         self.best_score = None
         self.early_stop = False
-        self.val_loss_min = np.Inf
+        self.val_loss_min = np.inf
 
     def __call__(self, epoch, val_loss, model, ckpt_name = 'checkpoint.pt'):
 
@@ -178,6 +179,10 @@ def train(datasets, cur, args):
         # model = MIL_Cluster_FC(embed_dim=args.embed_dim, n_classes=args.n_classes)
     elif args.model_type == 'trans_mil':
         model = TransMIL(args.embed_dim, n_classes = args.n_classes)
+    elif args.model_type == 'abmil':
+        print('abmiiiil')
+        model = AttentionMILModel(in_features=args.embed_dim, L=args.L, D=args.D, num_classes=args.n_classes)
+        print('yeahhhh')
     else: # args.model_type == 'mil'
         if args.n_classes > 2:
             model = MIL_fc_mc(**model_dict)
@@ -198,9 +203,12 @@ def train(datasets, cur, args):
     test_loader = get_split_loader(test_split, testing = args.testing)
     print('Done!')
 
+    # limit the loaders to 10 samples for testing
+    train_loader
+
     print('\nSetup EarlyStopping...', end=' ')
     if args.early_stopping:
-        early_stopping = EarlyStopping(patience = 20, stop_epoch=50, verbose = True)
+        early_stopping = EarlyStopping(patience = 5, stop_epoch=50, verbose = True)
 
     else:
         early_stopping = None
@@ -272,7 +280,7 @@ def train_loop_clam(epoch, model, loader, optimizer, n_classes, bag_weight, writ
     train_inst_loss = 0.
     inst_count = 0
 
-    print('\n')
+    #print('\n')
     for batch_idx, (data, label) in enumerate(loader):
         data, label = data.to(device), label.to(device)
         logits, Y_prob, Y_hat, _, instance_dict = model(data, label=label, instance_eval=True)
@@ -317,7 +325,7 @@ def train_loop_clam(epoch, model, loader, optimizer, n_classes, bag_weight, writ
             acc, correct, count = inst_logger.get_summary(i)
             print('class {} clustering acc {}: correct {}/{}'.format(i, acc, correct, count))
 
-    print('Epoch: {}, train_loss: {:.4f}, train_clustering_loss:  {:.4f}, train_error: {:.4f}'.format(epoch, train_loss, train_inst_loss,  train_error))
+    print('\nEpoch: {}, train_loss: {:.4f}, train_clustering_loss:  {:.4f}, train_error: {:.4f}'.format(epoch, train_loss, train_inst_loss,  train_error))
     per_class_acc = {}
     for i in range(n_classes):
         acc, correct, count = acc_logger.get_summary(i)
@@ -341,19 +349,20 @@ def train_loop(epoch, model, loader, optimizer, n_classes, writer = None, loss_f
     train_loss = 0.
     train_error = 0.
 
-    print('\n')
+    #print('\n')
     for batch_idx, (data, label) in enumerate(loader):
         data, label = data.to(device), label.to(device)
 
         logits, Y_prob, Y_hat, _, _ = model(data)
-        
+        #print('Y_hat in train loop', Y_hat)
         acc_logger.log(Y_hat, label)
+
         loss = loss_fn(logits, label)
         loss_value = loss.item()
         
         train_loss += loss_value
-        if (batch_idx + 1) % 20 == 0:
-            print('batch {}, loss: {:.4f}, label: {}, bag_size: {}'.format(batch_idx, loss_value, label.item(), data.size(0)))
+        if (batch_idx + 1) % 150 == 0:
+            print('batch {}, loss: {:.4f}'.format(batch_idx, loss_value))
            
         error = calculate_error(Y_hat, label)
         train_error += error
@@ -419,7 +428,7 @@ def validate(cur, epoch, model, loader, n_classes, early_stopping = None, writer
     else:
         auc = roc_auc_score(labels, prob, multi_class='ovr')
     
-    print('\nVal Set, val_loss: {:.4f}, val_error: {:.4f}, auc: {:.4f}'.format(val_loss, val_error, auc))
+    print('Val Set, val_loss: {:.4f}, val_error: {:.4f}, auc: {:.4f}'.format(val_loss, val_error, auc))
     per_class_acc = {}
     for i in range(n_classes):
         acc, correct, count = acc_logger.get_summary(i)
@@ -434,11 +443,13 @@ def validate(cur, epoch, model, loader, n_classes, early_stopping = None, writer
     val_logs.update(per_class_acc)
 
     wandb.log(val_logs)
+    
+    #import ipdb; ipdb.set_trace()
 
     if early_stopping:
         assert results_dir
         early_stopping(epoch, val_loss, model, ckpt_name = os.path.join(results_dir, "s_{}_checkpoint.pt".format(cur)))
-        
+        print('EARLY STOPPING.EARLY STOP:', early_stopping.early_stop)
         if early_stopping.early_stop:
             print("Early stopping")
             return True

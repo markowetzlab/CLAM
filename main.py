@@ -32,11 +32,15 @@ def main(args):
     all_test_acc = []
     all_val_acc = []
     folds = np.arange(start, end)
+    print('folds:', folds)
     for i in folds:
         seed_torch(args.seed)
+        split_csv_path='{}/splits_{}.csv'
+        print(split_csv_path)
         train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False, 
-                csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
-        
+                split_csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
+       # print('{}/splits_{}.csv'.format(args.split_dir, i))
+       # print('length of train, val, test: ', len(train_dataset), len(val_dataset), len(test_dataset))
         datasets = (train_dataset, val_dataset, test_dataset)
         results, test_auc, val_auc, test_acc, val_acc  = train(datasets, i, args)
         all_test_auc.append(test_auc)
@@ -85,12 +89,12 @@ parser.add_argument('--opt', type=str, choices = ['adam', 'sgd'], default='adam'
 parser.add_argument('--drop_out', type=float, default=0.25, help='dropout')
 parser.add_argument('--bag_loss', type=str, choices=['svm', 'ce'], default='ce',
                      help='slide-level classification loss function (default: ce)')
-parser.add_argument('--model_type', type=str, choices=['clam_sb', 'clam_mb', 'mil', 'dgcn', 'mi_fcn', 'dsmil', 'trans_mil'], default='clam_sb', 
+parser.add_argument('--model_type', type=str, choices=['clam_sb', 'clam_mb', 'mil', 'dgcn', 'mi_fcn', 'dsmil', 'trans_mil', 'abmil'], default='clam_sb', 
                     help='type of model (default: clam_sb, clam w/ single attention branch)')
 parser.add_argument('--exp_code', type=str, help='experiment code for saving results')
 parser.add_argument('--weighted_sample', action='store_true', default=False, help='enable weighted sampling')
 parser.add_argument('--model_size', type=str, choices=['small', 'big'], default='small', help='size of model, does not affect mil')
-parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade', 'be', 'atypia'])
+parser.add_argument('--task', type=str, choices=['task_1_tumor_vs_normal',  'task_2_tumor_subtyping', 'task_3_esophagus_tumor_grade', 'task_4_progressor', 'be', 'atypia'])
 ### CLAM specific options
 parser.add_argument('--no_inst_cluster', action='store_true', default=False,
                      help='disable instance-level clustering')
@@ -101,6 +105,8 @@ parser.add_argument('--subtyping', action='store_true', default=False,
 parser.add_argument('--bag_weight', type=float, default=0.7,
                     help='clam: weight coefficient for bag-level loss (default: 0.7)')
 parser.add_argument('--B', type=int, default=8, help='numbr of positive/negative patches to sample for clam')
+parser.add_argument('--L', type=int, default=128, help='attention layer size for clam')
+parser.add_argument('--D', type=int, default=64, help='attention layer size for clam')
 args = parser.parse_args()
 device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -176,6 +182,21 @@ elif args.task == 'task_3_esophagus_tumor_grade':
                                         'GM': 1,
                                         'LGD': 2,
                                         'HGD': 3, 'ID': 3, 'IMC': 3
+                                        },
+                            patient_strat= False,
+                            ignore=['(no slide submitted)'])
+
+    if args.model_type in ['clam_sb', 'clam_mb']:
+        assert args.subtyping 
+elif args.task == 'task_4_progressor':
+    args.n_classes=2
+    dataset = Generic_MIL_Dataset(csv_path = '/scratchc/fmlab/zuberi01/masters/slide_matching_model_training_input_230815_merged_where_possible_with_GB_CLAM_path_predictions_and_GB_CLAM_progressor_predictions_and_early_fusion_progressor_predictions.csv',
+                            data_dir = "/scratchc/fmlab/zuberi01/masters/saved_patches/40x_400/features2",
+                            shuffle = False, 
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {'NP': 0,
+                                        'P': 1,
                                         },
                             patient_strat= False,
                             ignore=['(no slide submitted)'])

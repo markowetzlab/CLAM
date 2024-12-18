@@ -57,8 +57,9 @@ class Whole_Slide_Bag_FP(Dataset):
 		"""
 		self.wsi = wsi
 		self.roi_transforms = img_transforms
-
+		print('file_path',file_path)
 		self.file_path = file_path
+		print('self.file_path',self.file_path)
 
 		with h5py.File(self.file_path, "r") as f:
 			dset = f['coords']

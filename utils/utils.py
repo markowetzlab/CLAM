@@ -39,7 +39,7 @@ def collate_features(batch):
 
 
 def get_simple_loader(dataset, batch_size=1, num_workers=1):
-	kwargs = {'num_workers': 4, 'pin_memory': False, 'num_workers': num_workers} if device.type == "cuda" else {}
+	kwargs = {'num_workers': 1, 'pin_memory': False, 'num_workers': num_workers} if device.type == "cuda" else {}
 	loader = DataLoader(dataset, batch_size=batch_size, sampler = sampler.SequentialSampler(dataset), collate_fn = collate_MIL, **kwargs)
 	return loader
 
@@ -47,7 +47,7 @@ def get_split_loader(split_dataset, training = False, testing = False, weighted 
 	"""
 		return either the validation loader or training loader 
 	"""
-	kwargs = {'num_workers': 4} if device.type == "cuda" else {}
+	kwargs = {'num_workers': 1} if device.type == "cuda" else {}
 	if not testing:
 		if training:
 			if weighted:

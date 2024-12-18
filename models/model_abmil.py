@@ -54,7 +54,10 @@ class AttentionMILModelOutput(NamedTuple):
     """A container for the outputs of an attention MIL model."""
 
     logits: torch.Tensor
+    Y_prob: torch.Tensor
+    Y_hat: torch.Tensor
     attention: torch.Tensor
+    extra: torch.Tensor # Placeholder for any extra output
 
 
 class AttentionMILModel(nn.Module):
@@ -99,4 +102,10 @@ class AttentionMILModel(nn.Module):
         A = F.softmax(A, dim=1)  # softmax over N
         M = torch.mm(A, H)  # KxL
         logits = self.head(M)  # 1xK
-        return AttentionMILModelOutput(logits=logits, attention=A_raw)
+        #return AttentionMILModelOutput(logits=logits, attention=A_raw)
+
+        # We will also compute Y_prob and Y_hat to be able to compute the loss
+        Y_prob = F.softmax(logits, dim=1) # Predicted probabilities
+        Y_hat = torch.argmax(Y_prob, dim=1) # Predicted class
+
+        return AttentionMILModelOutput(logits=logits, Y_prob=Y_prob, Y_hat=Y_hat, attention=A_raw, extra=None)
