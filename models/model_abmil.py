@@ -102,7 +102,7 @@ class AttentionMILModel(nn.Module):
         A = F.softmax(A, dim=1)  # softmax over N
         M = torch.mm(A, H)  # KxL
         logits = self.head(M)  # 1xK
-        #return AttentionMILModelOutput(logits=logits, attention=A_raw)
+        #return AttentionMILModelOutput(logits=logits, attention=A_raw) # Original return
 
         # We will also compute Y_prob and Y_hat to be able to compute the loss
         Y_prob = F.softmax(logits, dim=1) # Predicted probabilities
