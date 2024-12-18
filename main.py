@@ -36,11 +36,8 @@ def main(args):
     for i in folds:
         seed_torch(args.seed)
         split_csv_path='{}/splits_{}.csv'
-        print(split_csv_path)
         train_dataset, val_dataset, test_dataset = dataset.return_splits(from_id=False, 
                 split_csv_path='{}/splits_{}.csv'.format(args.split_dir, i))
-       # print('{}/splits_{}.csv'.format(args.split_dir, i))
-       # print('length of train, val, test: ', len(train_dataset), len(val_dataset), len(test_dataset))
         datasets = (train_dataset, val_dataset, test_dataset)
         results, test_auc, val_auc, test_acc, val_acc  = train(datasets, i, args)
         all_test_auc.append(test_auc)
