@@ -26,6 +26,22 @@ def initialize_df(slides, seg_params, filter_params, vis_params, patch_params,
 	# initiate empty labels in case not provided
 	if use_heatmap_args:
 		default_df_dict.update({'label': np.full((total), -1)})
+
+	print('\n')
+	# add based_on to seg_params
+	if 'based_on' not in seg_params:
+		seg_params['based_on'] = 'rgb'
+		print('based_on not provided, defaulting to rgb')
+	if 'contrast' not in seg_params:
+		seg_params['contrast'] = 0
+		print('contrast not provided, defaulting to 0')	
+	if 'min_pixel_count' not in filter_params:
+		filter_params['min_pixel_count'] = 0
+		print('min_pixel_count not provided, defaulting to 0')
+	if 'max_dist' not in filter_params:
+		filter_params['max_dist'] = 0
+		print('max_dist not provided, defaulting to 0')
+	print('seg_params:', seg_params)
 	
 	default_df_dict.update({
 		'status': np.full((total), 'tbp'),

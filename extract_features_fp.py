@@ -6,7 +6,7 @@ import h5py
 import numpy as np
 import openslide
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, SubsetRandomSampler
 from tqdm import tqdm
 
 from dataset_modules.dataset_h5 import Dataset_All_Bags, Whole_Slide_Bag_FP
@@ -14,6 +14,8 @@ from models import get_encoder
 from utils.file_utils import save_hdf5
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+print(device)
+print(f"Number of GPUs available: {torch.cuda.device_count()}")
 
 def compute_w_loader(output_path, loader, model, silent=False):
 	"""
@@ -36,7 +38,10 @@ def compute_w_loader(output_path, loader, model, silent=False):
 			features = features.cpu().numpy().astype(np.float32)
 
 			asset_dict = {'features': features, 'coords': coords}
-			save_hdf5(output_path, asset_dict, attr_dict= None, mode=mode)
+			attr_dict = {
+				'coords': {'patch_level': dataset.patch_level, 'patch_size': dataset.patch_size}
+			}
+			save_hdf5(output_path, asset_dict, attr_dict= attr_dict, mode=mode)
 			mode = 'a'
 	
 	return output_path
@@ -48,7 +53,7 @@ parser.add_argument('--data_slide_dir', type=str, default=None)
 parser.add_argument('--slide_ext', type=str, default= '.svs')
 parser.add_argument('--csv_path', type=str, default=None)
 parser.add_argument('--feat_dir', type=str, default=None)
-parser.add_argument('--model_name', type=str, default='resnet50_trunc', choices=['resnet50_trunc', 'uni_v1', 'conch_v1', 'virchow_v2'])
+parser.add_argument('--model_name', type=str, default='resnet50_trunc', choices=['resnet50_trunc', 'uni_v1', 'conch_v1', 'virchow_v2', 'conch_v1_5', 'uni_v2'])
 parser.add_argument('--batch_size', type=int, default=256)
 parser.add_argument('--no_auto_skip', default=False, action='store_true')
 parser.add_argument('--target_patch_size', type=int, default=224)
@@ -73,6 +78,7 @@ if __name__ == '__main__':
 
 	_ = model.eval()
 	model = model.to(device)
+
 	total = len(bags_dataset)
 
 	loader_kwargs = {'num_workers': 8, 'pin_memory': True} if device.type == "cuda" else {}
@@ -97,6 +103,9 @@ if __name__ == '__main__':
 									 img_transforms=img_transforms)
 
 		loader = DataLoader(dataset=dataset, batch_size=args.batch_size, **loader_kwargs)
+		# limit loader size
+		#loader = DataLoader(dataset=dataset, batch_size=args.batch_size, **loader_kwargs, sampler=SubsetRandomSampler(range(10)))
+
 		output_file_path = compute_w_loader(output_path, loader = loader, model = model, silent=args.silent)
 
 		time_elapsed = time.time() - time_start

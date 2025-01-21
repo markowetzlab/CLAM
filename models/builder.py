@@ -35,6 +35,20 @@ def has_UNI():
     except Exception as e:
         print(e)
     return HAS_UNI, UNI_CKPT_PATH
+
+def has_UNI2():
+    HAS_UNI2 = False
+    UNI2_CKPT_PATH = ''
+    # check if UNI2_CKPT_PATH is set, catch exception if not
+    try:
+        # check if UNI2_CKPT_PATH is set
+        if 'UNI2_CKPT_PATH' not in os.environ:
+            raise ValueError('UNI2_CKPT_PATH not set')
+        HAS_UNI2 = True
+        UNI2_CKPT_PATH = os.environ['UNI2_CKPT_PATH']
+    except Exception as e:
+        print(e)
+    return HAS_UNI2, UNI2_CKPT_PATH
         
 def get_encoder(model_name, target_img_size=224):
     print('loading model checkpoint')
@@ -65,6 +79,28 @@ def get_encoder(model_name, target_img_size=224):
         titan = AutoModel.from_pretrained('MahmoodLab/TITAN', trust_remote_code=True)
         model, _ = titan.return_conch()
         assert target_img_size == 448, 'TITAN is used with 448x448 CONCH v1.5 features'
+    # Adding UNI v2
+    elif model_name == 'uni_v2':
+        HAS_UNI, UNI_CKPT_PATH = has_UNI2()
+        assert HAS_UNI, 'UNI2 is not available'
+
+        timm_kwargs = {
+            'img_size': 224, 
+            'patch_size': 14, 
+            'depth': 24,
+            'num_heads': 24,
+            'init_values': 1e-5, 
+            'embed_dim': 1536,
+            'mlp_ratio': 2.66667*2,
+            'num_classes': 0, 
+            'no_embed_class': True,
+            'mlp_layer': timm.layers.SwiGLUPacked, 
+            'act_layer': torch.nn.SiLU, 
+            'reg_tokens': 8, 
+            'dynamic_img_size': True
+        }
+        model = timm.create_model("hf-hub:MahmoodLab/UNI2-h", pretrained=True, **timm_kwargs)
+        model.load_state_dict(torch.load(os.path.join("/scratchc/fmlab/zuberi01/phd/UNI2-h", "pytorch_model.bin"), map_location="cpu", weights_only=False), strict=False)
     else:
         raise NotImplementedError('model {} not implemented'.format(model_name))
     
