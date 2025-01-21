@@ -180,9 +180,7 @@ def train(datasets, cur, args):
     elif args.model_type == 'trans_mil':
         model = TransMIL(args.embed_dim, n_classes = args.n_classes)
     elif args.model_type == 'abmil':
-        print('abmiiiil')
         model = AttentionMILModel(in_features=args.embed_dim, L=args.L, D=args.D, num_classes=args.n_classes)
-        print('yeahhhh')
     else: # args.model_type == 'mil'
         if args.n_classes > 2:
             model = MIL_fc_mc(**model_dict)

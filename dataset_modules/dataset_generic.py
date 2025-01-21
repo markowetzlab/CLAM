@@ -60,8 +60,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		self.case_col = case_col
 		self.slide_col = slide_col
 		self.label_col = label_col
-		
-		print('csv_path used for slide_data', csv_path)
+	
 		slide_data = pd.read_csv(csv_path)
 		slide_data = self.filter_df(slide_data, filter_dict)
 		slide_data = self.df_prep(slide_data, self.label_dict, ignore, self.label_col)
@@ -71,9 +70,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			np.random.seed(seed)
 			np.random.shuffle(slide_data)
 		
-		print('slide_data head', slide_data.head())
 		self.slide_data = slide_data
-		print('DGFOFGHIFOEGFGBA')
 
 		self.patient_data_prep(patient_voting)
 		self.cls_ids_prep()
@@ -188,9 +185,6 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			self.train_ids, self.val_ids, self.test_ids = ids
 
 	def get_split_from_df(self, all_splits, split_key='train'):
-		#print("split_key:", split_key)
-		#print("all_splits columns:", all_splits.columns)
-		#print("all_splits head:\n", all_splits.head())
 
 		# Ensure split_key is indeed a column in all_splits
 		if split_key not in all_splits.columns:
@@ -198,31 +192,16 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			return None
 
 		split = all_splits[split_key]
-		#print("split before dropna:\n", split.head())
 		
 		split = split.dropna().reset_index(drop=True)
-		#print("split after dropna:\n", split.head(), "\nlength:", len(split))
 
 		# Check if there's any data left in split
 		if len(split) > 0:
-			#print("Unique values in split:\n", split.unique())
-			
-			# Check the types and sample values in self.slide_data
-			#print("self.slide_data columns:", self.slide_data.columns)
-			#print("Type of self.slide_data[self.slide_col]:", self.slide_data[self.slide_col].dtype)
-			#print("Type of split:", split.dtype)
-
 			# Before filtering, see if any elements of split actually appear in self.slide_data[self.slide_col]
-			#print("Example values in self.slide_data[self.slide_col]:", self.slide_data[self.slide_col].head())
-			#print('self.slide_data', self.slide_data)
-			print('\n','XXXX')
 			mask = self.slide_data[self.slide_col].isin(split.tolist())
-			#print("Number of True values in mask:", mask.sum())
 			
 			df_slice = self.slide_data[mask].reset_index(drop=True)
-			#print("df_slice length:", len(df_slice))
-			#print("df_slice head:\n", df_slice.head())
-
+			
 			if len(df_slice) == 0:
 				print("No rows matched between self.slide_data and split. Check data types and formatting.")
 				
@@ -278,23 +257,8 @@ class Generic_WSI_Classification_Dataset(Dataset):
 			
 		else:
 			assert split_csv_path 
-			#print('\n')
-			print('split_csv_path: ', split_csv_path)
-			#assert os.path.exists(csv_path+'.nnnn')
-			#print('\n')
 			all_splits = pd.read_csv(split_csv_path, dtype=self.slide_data[self.slide_col].dtype)  # Without "dtype=self.slide_data[self.slide_col].dtype", read_csv() will convert all-number columns to a numerical type. Even if we convert numerical columns back to objects later, we may lose zero-padding in the process; the columns must be correctly read in from the get-go. When we compare the individual train/val/test columns to self.slide_data[self.slide_col] in the get_split_from_df() method, we cannot compare objects (strings) to numbers or even to incorrectly zero-padded objects/strings. An example of this breaking is shown in https://github.com/andrew-weisman/clam_analysis/tree/main/datatype_comparison_bug-2021-12-01.
-			#print('slide col', self.slide_col)
-			#print('self.slide_data[self.slide_col]', self.slide_data[self.slide_col])
 			train_split = self.get_split_from_df(all_splits, 'train')
-			#print("All splits DataFrame:")
-			print(all_splits.head())
-			#print("DataFrame columns:", all_splits.columns)
-			#print("DataFrame dtypes:", all_splits.dtypes)
-
-			#print('train_split length: ', len(train_split))
-			#print('all splits columns: ', all_splits.columns)
-			#print('training split', train_split)
-			#print('training split contents ', train_split.slide_data)
 			val_split = self.get_split_from_df(all_splits, 'val')
 			test_split = self.get_split_from_df(all_splits, 'test')
 			
@@ -377,10 +341,8 @@ class Generic_MIL_Dataset(Generic_WSI_Classification_Dataset):
 	def __getitem__(self, idx):
 		slide_id = self.slide_data['slide_id'][idx]
 		label = self.slide_data['label'][idx]
-		#print('\n')
 		# remove .ndpi extension
 		slide_id = re.sub(r'\.ndpi$', '', slide_id)
-		#print("SLIDE ID: ", slide_id)
 
 		if type(self.data_dir) == dict:
 			source = self.slide_data['source'][idx]
