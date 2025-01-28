@@ -201,9 +201,9 @@ elif args.task == 'task_4_progressor':
 
     if args.model_type in ['clam_sb', 'clam_mb']:
         assert args.subtyping 
-elif args.task == 'be':
+elif args.task == 'he_tff3':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/be_he_adequate.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/he_tff3_adequate.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             seed = args.seed, 

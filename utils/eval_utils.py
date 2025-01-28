@@ -5,6 +5,7 @@ from models.model_dsmil import *
 from models.model_mil import MIL_fc, MIL_fc_mc
 # from models.model_dgcn import DeepGraphConv
 from models.model_clam import CLAM_MB, CLAM_SB
+from models.model_abmil import AttentionMILModel
 # from models.model_cluster import MIL_Cluster_FC
 from models.model_transmil import TransMIL
 
@@ -36,6 +37,8 @@ def initiate_model(args, ckpt_path, device='cuda'):
         # model = MIL_Cluster_FC(embed_dim=args.embed_dim, n_classes=args.n_classes)
     elif args.model_type == 'trans_mil':
         model = TransMIL(args.embed_dim, n_classes = args.n_classes)
+    elif args.model_type == 'abmil':
+        model = AttentionMILModel(in_features=args.embed_dim, L=args.L, D=args.D, num_classes=args.n_classes)
     else: # args.model_type == 'mil'
         if args.n_classes > 2:
             model = MIL_fc_mc(**model_dict)
