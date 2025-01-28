@@ -85,9 +85,9 @@ elif args.task == 'task_2_tumor_subtyping':
                             label_dict = {'subtype_1':0, 'subtype_2':1, 'subtype_3':2},
                             patient_strat= False,
                             ignore=[])
-elif args.task == 'be_he_delta':
+elif args.task == 'he_tff3_delta':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/be_he_adequate.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/delta/he_tff3_adequate.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             seed = args.seed, 
@@ -95,9 +95,9 @@ elif args.task == 'be_he_delta':
                             label_dict = {'N':0, 'Y':1},
                             patient_strat=False,
                             ignore=[])
-elif args.task == 'be_he_best4_pilot':
+elif args.task == 'he_tff3_best4_pilot':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/pilot/he_be_slides.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/pilot/he_tff3_slides.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             print_info = True,
@@ -105,13 +105,13 @@ elif args.task == 'be_he_best4_pilot':
                             patient_strat=False,
                             ignore=[])
 
-elif args.task == 'be_he_best4_surveillance':
+elif args.task == 'he_tff3_best4_surveillance':
     args.n_classes=2
-    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/surveillance/he_be_slides.csv',
+    dataset = Generic_MIL_Dataset(csv_path = 'dataset_csv/best4/surveillance/he_tff3_slides.csv',
                             data_dir= args.data_root_dir,
                             shuffle = False, 
                             print_info = True,
-                            label_dict = {1:0, 2:1, 3:1},
+                            label_dict = {'Negative':0, 'Not Provided':0, 'Positive':1},
                             patient_strat=False,
                             ignore=[])
 else:
@@ -144,7 +144,7 @@ if __name__ == "__main__":
             mode = 'disabled'
 
         wandb.init(
-            project="be_mil",
+            project=args.project,
             name=f"{args.save_exp_code}_{args.model_type}_{ckpt_idx}",
             config={"dataset": args.task, "model": args.model_type},
             group=f"{args.save_exp_code}_{args.model_type}",

@@ -1,6 +1,9 @@
 """
-Implementations of attention-based multiple instance learning models.
+Implementations of attention-based multiple instance learning models from:
 https://github.com/kaczmarj/HIPPO/tree/main/hippo/models
+
+Original idea by:
+Ilse, M., Tomczak, J. M., & Welling, M. (2018). Attention-based Deep Multiple Instance Learning. arXiv preprint arXiv:1802.04712.
 """
 
 from __future__ import annotations

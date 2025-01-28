@@ -207,7 +207,7 @@ def seg_and_patch(source, mask_source, save_dir, patch_save_dir, mask_save_dir, 
 
 		if save_mask:
 			mask = WSI_object.visWSI(**current_vis_params)
-			mask_path = os.path.join(mask_save_dir, slide_id+'.jpg')
+			mask_path = os.path.join(mask_save_dir, os.path.basename(slide_id)+'.jpg')
 			mask.save(mask_path)
 
 		patch_time_elapsed = -1 # Default time
@@ -218,10 +218,10 @@ def seg_and_patch(source, mask_source, save_dir, patch_save_dir, mask_save_dir, 
 		
 		stitch_time_elapsed = -1
 		if stitch:
-			file_path = os.path.join(patch_save_dir, slide_id+'.h5')
+			file_path = os.path.join(patch_save_dir, os.path.basename(slide_id)+'.h5')
 			if os.path.isfile(file_path):
 				heatmap, stitch_time_elapsed = stitching(file_path, WSI_object, downscale=64)
-				stitch_path = os.path.join(stitch_save_dir, slide_id+'.jpg')
+				stitch_path = os.path.join(stitch_save_dir, os.path.basename(slide_id)+'.jpg')
 				heatmap.save(stitch_path)
 
 		print("segmentation took {} seconds".format(seg_time_elapsed))
@@ -248,13 +248,13 @@ parser = argparse.ArgumentParser(description='seg and patch')
 parser.add_argument('--source', type = str,
 					help='path to folder containing raw wsi image files')
 parser.add_argument('--step_size', type = int, default=256,
-					help='step_size') #512
+					help='step_size')
 parser.add_argument('--patch_size', type = int, default=256,
-					help='patch_size') #512
+					help='patch_size')
 parser.add_argument('--patch', default=False, action='store_true')
 parser.add_argument('--seg', default=False, action='store_true')
 parser.add_argument('--base', default='hed', type=str, help='segmentation based on colour space (hed, gray, mask)}',
-					choices=['hed', 'gray', 'mask']) #hed
+					choices=['hed', 'gray', 'mask'])
 parser.add_argument('--mask_source', type = str, default=None,
 					help='path to folder containing pre-processed mask files if base = "mask" (optional)')
 parser.add_argument('--keep_ids', default='none', type=str, help='ids to keep , e.g. [1, 6, 8]')
@@ -266,7 +266,7 @@ parser.add_argument('--save_dir', type = str,
 parser.add_argument('--preset', default=None, type=str,
 					help='predefined profile of default segmentation and filter parameters (.csv)')
 parser.add_argument('--patch_level', type=int, default=0, 
-					help='downsample level at which to patch') #1
+					help='downsample level at which to patch')
 parser.add_argument('--process_list',  type = str, default=None,
 					help='name of list of images to process with parameters (.csv)')
 
