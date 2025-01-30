@@ -121,7 +121,9 @@ def train(datasets, cur, args):
                 "seed": args.seed, 
                 "bag_loss": args.bag_loss, 
                 "inst_loss": args.inst_loss, 
-                "B": args.B, 
+                "B": args.B,
+                "L": args.L,
+                "D": args.D,
                 "subtyping": args.subtyping, 
                 "model_size": args.model_size, 
                 "drop_out": args.drop_out, 
@@ -212,9 +214,6 @@ def train(datasets, cur, args):
     test_loader = get_split_loader(test_split, testing = args.testing)
     print('Done!')
 
-    # limit the loaders to 10 samples for testing
-    train_loader
-
     print('\nSetup EarlyStopping...', end=' ')
     if args.early_stopping:
         early_stopping = EarlyStopping(patience = 5, stop_epoch=50, verbose = True)
@@ -248,25 +247,27 @@ def train(datasets, cur, args):
     results_dict, test_error, test_auc, acc_logger = summary(model, test_loader, args.n_classes)
     print('Test error: {:.4f}, ROC AUC: {:.4f}'.format(test_error, test_auc))
 
+    wandb.define_metric('test/*', step_metric='fold')
     test_acc = {}
     for i in range(args.n_classes):
         acc, correct, count = acc_logger.get_summary(i)
         print('class {}: acc {}, correct {}/{}'.format(i, acc, correct, count))
 
         if writer:
-            writer.add_scalar('final/test_class_{}_acc'.format(i), acc, 0)
+            writer.add_scalar('final/test_class_{}_acc'.format(i), acc)
 
         test_acc.update({f'test/test_class_{i}_acc': acc})
 
     test_logs = {
         'test/val_error': val_error, 
-        'test/val_auc': val_auc, 
+        'test/val_auc': val_auc,
         'test/test_error': test_error, 
         'test/test_auc': test_auc
         }
     test_logs.update(test_acc)
+    wandb.summary["auc"] = test_auc
     
-    wandb.log(test_logs, step=0)
+    wandb.log(test_logs)
     wandb.finish()
 
     if writer:
